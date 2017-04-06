@@ -1,0 +1,28 @@
+{
+    "name": "Vendor",
+    "base": "Eventmanager",
+    "idInjection": true,
+    "options": {
+        "validateUpsert": true
+    },
+    "properties": {
+        "address": {
+            "type": "string"
+        },
+        "image": {
+            "type": "string"
+        },
+        "businessName": {
+            "type": "string"
+        },
+        "checkListIds": {
+            "type": [
+                "string"
+            ]
+        }
+    },
+    "validations": [],
+    "relations": {},
+    "acls": [],
+    "methods": {}
+}

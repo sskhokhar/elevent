@@ -1,0 +1,44 @@
+{
+    "name": "Task",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "options": {
+        "validateUpsert": true
+    },
+    "properties": {
+        "title": {
+            "type": "string"
+        },
+        "description": {
+            "type": "string"
+        },
+        "startTime": {
+            "type": "date"
+        },
+        "endTime": {
+            "type": "date"
+        },
+        "location": {
+            "type": "string"
+        }
+    },
+    "validations": [],
+    "relations": {
+        "eventId": {
+            "type": "belongsTo",
+            "model": "Event",
+            "foreignKey": "eventId"
+        },
+        "checklists": {
+            "type": "referencesMany",
+            "model": "Checklist",
+            "foreignKey": "checklistIds",
+            "options": {
+                "validate": true,
+                "forceId": false
+            }
+        }
+    },
+    "acls": [],
+    "methods": {}
+}

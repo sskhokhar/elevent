@@ -1,0 +1,30 @@
+{
+    "name": "Eventmanager",
+    "base": "Eleventuser",
+    "idInjection": true,
+    "options": {
+        "validateUpsert": true
+    },
+    "properties": {
+        "address": {
+            "type": "string"
+        },
+        "image": {
+            "type": "string"
+        }
+    },
+    "validations": [],
+    "relations": {
+        "events": {
+            "type": "referencesMany",
+            "model": "Event",
+            "foreignKey": "eventIds",
+            "options": {
+                "validate": true,
+                "forceId": false
+            }
+        }
+    },
+    "acls": [],
+    "methods": {}
+}
