@@ -1,0 +1,266 @@
+html {
+    height: 95.3%;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    height: 95.3%;
+    margin: 0px;
+    padding: 0px;
+}
+
+h3{
+  font-weight: bold;
+}
+
+p{
+    color: black;
+    font-weight: bold;
+}
+
+#sideBar {
+    background: #000;
+    height: 100%;
+    width: 150px;
+}
+
+#sideBar ul li{
+	
+	list-style: none;
+	margin: 15px 0;
+	padding: 15px 0;
+}
+
+#sideBar ul li a i{
+	color: #a5a4a4!important;
+}
+
+#sideBarNav {
+    background: #fff;
+    height: 100%;
+    width: 150px;
+}
+
+#sideBarNav ul li{
+    
+    list-style: none;
+    margin: 15px 0;
+    padding: 15px 0;
+}
+
+#sideBarNav ul li a i{
+    /*color: #a5a4a4!important;*/
+}
+
+.customList{
+    display: block; font-size: 14px; 
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.e:hover{
+     -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+}
+
+.navbar {
+    margin-bottom: 0px;
+}
+
+.custom-ul li{
+    color: #5ef2ed!important;
+    font-size: 14px;
+}
+
+.custom-ul li .pull-left .pull-right{
+    color: #898888!important;
+    font-size: 14px;
+}
+
+.main-content {
+    padding: 0 30px;
+    height: 100%;
+    /*background-color:white;*/
+    background-image: url(../images/bgg.jpg);
+    background-position: center;
+    background-size: cover;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.main-content .row {
+    position: absolute;
+    top: 15%;
+    width: 100%;
+}
+
+.event-cards {
+    margin: 10px 20px 20px 20px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    background-color: white;
+    padding: 0px;
+}
+
+.card-extras {
+    background: white;
+    padding: 10px;
+}
+
+.dashboard-card ul{
+    margin-top: -40px;
+}
+
+.dashboard-card ul li{
+    margin-top: 58px;
+    color: black;
+}
+
+.dashboard-card ul li:before {
+}
+
+.dashboard-row{
+    margin-left: 30px;
+}
+
+.btn-custom{
+    border-radius: 0px; background: #000; color: #fff;
+}
+
+.odd{
+    background: red;
+}
+.even{
+    background-color: #fff;
+}
+::-webkit-scrollbar {
+    width: 10px;
+    height: 5px;
+}
+#shadow{
+    -webkit-box-shadow: 7px 10px 33px -8px rgba(77,71,77,1);
+    -moz-box-shadow: 7px 10px 33px -8px rgba(77,71,77,1);
+    box-shadow: 6px 7px 9px -6px rgba(148,148,148,148);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #9d9d9d;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+    border-radius: 50px;
+    background-color: rgba(19, 7, 7, 0.44);
+}
+
+.progress-circle {
+    margin: 0 auto!important;
+}
+
+.loader {
+    border: 8px solid #f3f3f3;
+    /* Light grey */
+    border-right: 8px solid #3498db;
+    /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    /*animation: spin 2s linear infinite;*/
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes load {
+    0% {
+        stroke-dashoffset: 0
+    }
+}
+
+@-moz-keyframes load {
+    0% {
+        stroke-dashoffset: 0
+    }
+}
+
+@keyframes load {
+    0% {
+        stroke-dashoffset: 0
+    }
+}
+
+
+/* Container */
+
+.progress {
+    position: relative;
+    display: inline-block;
+    padding: 0;
+    text-align: center;
+}
+
+
+/* Item */
+
+.progress>li {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    color: #93A2AC;
+    font-family: Lato;
+    font-weight: 100;
+    margin: 2rem;
+}
+
+.progress>li:before {
+    content: attr(data-name);
+    position: absolute;
+    width: 100%;
+    bottom: -2rem;
+    font-weight: 400;
+}
+
+.progress>li:after {
+    content: attr(data-percent);
+    position: absolute;
+    width: 100%;
+    top: 3.7rem;
+    left: 0;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.progress svg {
+    width: 10rem;
+    height: 10rem;
+}
+
+.progress svg:nth-child(2) {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+}
+
+.progress svg:nth-child(2) path {
+    fill: none;
+    stroke-width: 25;
+    stroke-dasharray: 629;
+    stroke: rgba(255, 255, 255, 0.9);
+    -webkit-animation: load 10s;
+    -moz-animation: load 10s;
+    -o-animation: load 10s;
+    animation: load 10s;
+}

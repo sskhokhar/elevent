@@ -1,0 +1,149 @@
+<div class="row row-horizon" ng-controller="DashboardCtrl">
+    <div class="col-lg-3 col-md-5 col-sm-7 col-xs-7 event-cards" id="shadow">
+        <h4 style="margin-left: 20px; margin-top: 30px;">DUE THIS WEEK</h4>
+        <div class="card-extras dashboard-card">
+            <ul>
+                <li style="color: #5ef2ed;">
+                    <div class="col-lg-4 col-md-4 col-sm-4" style="color: #898888;">
+                        <span>2:30pm</span>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7" style="color: #898888;">
+                        <span>Pick up flowers</span>
+                        <span style="font-size: 10px;"> Freddrick </span>
+                    </div>
+                </li>
+                
+                <li style="color: #5ef2ed;">
+                    <div class="col-lg-4 col-md-4 col-sm-4" style="color: #898888;">
+                        <span>3:30pm</span>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6" style="color: #898888;">
+                        <span>Setup Venue</span>
+                        <span style="font-size: 10px;"> Ally </span>
+                    </div>
+                </li>
+
+                <li style="color: #5ef2ed;">
+                    <div class="col-lg-4 col-md-4 col-sm-4" style="color: #898888;">
+                        <span>4:30pm</span>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6" style="color: #898888;">
+                        <span>Makup <br></span>
+                        <span> <img src="images/guy-6.jpg" class="img-circle" width="20"> <img src="images/guy-6.jpg" class="img-circle" width="20"></span>
+                    </div>
+                </li>
+
+                <li style="color: #5ef2ed;">
+                    <div class="col-lg-4 col-md-4 col-sm-4" style="color: #898888;">
+                        <span>7:30pm</span>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6" style="color: #898888;">
+                        <span>Dinner served</span>
+                        <span style="font-size: 10px;"> Billy </span>
+                    </div>
+                </li>
+            </ul>
+            <div class="text-center">
+                <button class="btn-default btn-lg btn-custom" ng-click="go('timeline')" style="margin-top: 30px; margin-bottom: 10px;">View Full Timeline</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-5 col-sm-7 col-xs-7 event-cards" id="shadow">
+        <h4 style="margin-left: 20px; margin-top: 30px;">RECENT MESSAGES</h4>
+        <div class="card-extras" style="padding: 0px;">
+            <div class="chat">
+                <div class="chat-history">
+                    <ul class="chat-ul">
+                        <li>
+                            <div class="message-data" style="margin-top: 18px;">
+                                <span class="message-data-name"><img src="images/guy-6.jpg" class="img-circle" width="30"> </span>
+                            </div>
+                            <div class="message you-message">
+                                A new client?!?! I would love to help them, but where are we going to find the time? I would
+                            </div>
+                        </li>
+                        <li class="clearfix">
+                            <div class="message-data align-right" style="margin-top: 12px;">
+                                <span class="message-data-name"></span> <img src="images/guy-6.jpg" class="img-circle" width="30">
+                            </div>
+                            <div class="message me-message float-right"> A new client?!?! I would love to help them, but where are we going to find the time? I would love </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- end chat-history -->
+            </div>
+        </div>
+        <!-- end chat -->
+        <div class="text-center">
+            <button class="btn-default btn-lg btn-custom" style="margin-top: 30px; margin-bottom: 23px;">View All</button>
+        </div>
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-5 col-xs-5">
+        <div class="row" style="margin-top: 10px;">
+
+        <!-- Budget Card -->
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="panel-default">
+                    <div class="panel panel-body" style="margin-bottom: 30px; border-radius: 0px;">
+                        <h4 style="margin-bottom: 30px;">BUDGET</h4>
+                        <div class="c100 green p70 progress-circle text-center">
+                            <span>70%</span>
+                            <div class="slice">
+                                <div class="bar"></div>
+                                <div class="fill"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="col-lg-12 col-md-12 col-sm-12" ng-controller = "DashboardCtrl" ng-show = "!x" ng-mouseover = "x = !x" ng-mouseleave = "x = !!x">
+                <div class="panel-default">
+                    <div class="panel panel-body" style="margin-bottom: 30px; border-radius: 0px;">
+                        <h4 style="margin-bottom: 30px;">BUDGET f {{x}}</h4>
+                        <div class="c100 green p70 progress-circle text-center">
+                            <span>70%</span>
+                            <div class="slice">
+                                <div class="bar"></div>
+                                <div class="fill"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+            <!-- Team members card-->
+            <div class="col-lg-12 col-md-12 col-sm-12" style="margin-top: 8px;">
+                <div class="panel-default">
+                    <div class="panel panel-body text-center" style="border-radius: 0px;">
+                        <h4 style="margin-bottom: 20px;">TEAM MEMBERS</h4>
+                        <ul style="list-style: none">
+                            <li style="margin-left: -40px;">
+                                <img src="images/guy-6.jpg" class="img-circle" width="40">
+                                <img style="margin-left: 20px;" src="images/guy-6.jpg" class="img-circle" width="40">
+                            </li>
+                            <li style="margin-left: -40px; margin-top: 10px;">
+                                <img src="images/guy-6.jpg" class="img-circle" width="40">
+                                <i style="margin-left: 30px; margin-top: 
+                                20px;" class="fa fa-plus fa-2x" aria-hidden="true"></i>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-5 col-xs-5" style="margin-left: 20px;">
+        <div class="row" style="margin-top: 10px;">
+            <div class="panel-default">
+                <div class="panel panel-body" style="border-radius: 0px; height: 207px; width: 180px;">
+                    <h4 style="margin-bottom: 20px;">CALENDER</h4>
+                    <div class="text-center">
+                        <span class="fa fa-calendar-check-o fa-5x" style="margin-bottom: 20px; margin-top: 20px;"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
