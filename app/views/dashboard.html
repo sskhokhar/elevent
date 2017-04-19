@@ -1,18 +1,26 @@
+<style type="text/css">
+    .tl{
+        display: inline;
+        margin-left: 20px;
+    }
+</style>
 <div class="row row-horizon" ng-controller="DashboardCtrl">
-    <div class="col-lg-3 col-md-5 col-sm-7 col-xs-7 event-cards" id="shadow">
-        <h4 style="margin-left: 20px; margin-top: 30px;">DUE THIS WEEK</h4>
+    <div class="col-lg-3 col-md-5 col-sm-7 col-xs-7 event-cards shadow" id="">
+        <a href style="color: black;" ng-click="go('timeline')"> <span class="pull-right" style="padding: 8px;"><i  class="fa fa-ellipsis-v fa-1x"></i></span>
+        </a>
+        <h4 style="margin-left: 20px; margin-top: 20px;">DUE THIS WEEK</h4>
         <div class="card-extras dashboard-card">
             <ul>
-                <li style="color: #5ef2ed;">
+                <li style="color: #5ef2ed;" ng-repeat="x in timeline">
                     <div class="col-lg-4 col-md-4 col-sm-4" style="color: #898888;">
-                        <span>2:30pm</span>
+                        <span>{{x.time}}</span>
                     </div>
                     <div class="col-lg-7 col-md-7 col-sm-7" style="color: #898888;">
-                        <span>Pick up flowers</span>
-                        <span style="font-size: 10px;"> Freddrick </span>
+                        <span>{{x.title}}</span>
+                        <span style="font-size: 10px;"> {{x.vendor}} </span>
                     </div>
                 </li>
-                <li style="color: #5ef2ed;">
+                <!-- <li style="color: #5ef2ed;">
                     <div class="col-lg-4 col-md-4 col-sm-4" style="color: #898888;">
                         <span>3:30pm</span>
                     </div>
@@ -25,7 +33,7 @@
                     <div class="col-lg-4 col-md-4 col-sm-4" style="color: #898888;">
                         <span>4:30pm</span>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6" style="color: #898888;">
+                    <div class="col-lg-7 col-md-6 col-sm-6" style="color: #898888;">
                         <span>Makup <br></span>
                         <span> <img src="images/guy-6.jpg" class="img-circle" width="20"> <img src="images/guy-6.jpg" class="img-circle" width="20"></span>
                     </div>
@@ -38,14 +46,15 @@
                         <span>Dinner served</span>
                         <span style="font-size: 10px;"> Billy </span>
                     </div>
-                </li>
+                </li> -->
             </ul>
-            <div class="text-center">
-                <button class="btn-default btn-lg btn-custom" ng-click="go('timeline')" style="margin-top: 30px; margin-bottom: 10px;">View Full Timeline</button>
+            <div class="pull-right">
+                <button type="button" ng-click="go('timelineCreate')" class="btn btn-primary btn-circle btn-lg" style="text-align:right;float:right; margin-top: 20px; margin-bottom: 15px; margin-right: 10px; background: purple; border-color: purple;"><i class="glyphicon glyphicon-plus"></i></button>
+                <!-- <button class="btn-default btn-lg btn-custom" ng-click="go('timeline')" style="margin-top: 30px; margin-bottom: 10px;">View Full Timeline</button> -->
             </div>
         </div>
     </div>
-    <div class="col-lg-3 col-md-5 col-sm-7 col-xs-7 event-cards" id="shadow">
+    <!-- <div class="col-lg-3 col-md-5 col-sm-7 col-xs-7 event-cards" id="shadow">
         <h4 style="margin-left: 20px; margin-top: 30px;">RECENT MESSAGES</h4>
         <div class="card-extras" style="padding: 0px;">
             <div class="chat">
@@ -67,18 +76,16 @@
                         </li>
                     </ul>
                 </div>
-                <!-- end chat-history -->
             </div>
         </div>
-        <!-- end chat -->
         <div class="text-center">
             <button class="btn-default btn-lg btn-custom" style="margin-top: 30px; margin-bottom: 23px;">View All</button>
         </div>
-    </div>
-    <div class="col-lg-2 col-md-3 col-sm-5 col-xs-5">
+    </div> -->
+    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
         <div class="row" style="margin-top: 10px;">
             <!-- Budget Card -->
-            <div class="col-lg-12 col-md-12 col-sm-12">
+            <!-- <div class="col-lg-12 col-md-12 col-sm-12">
                 <div class="panel-default">
                     <div class="panel panel-body" style="margin-bottom: 30px; border-radius: 0px;">
                         <h4 style="margin-bottom: 30px;">BUDGET</h4>
@@ -91,34 +98,84 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- <div class="col-lg-12 col-md-12 col-sm-12" ng-controller = "DashboardCtrl" ng-show = "!x" ng-mouseover = "x = !x" ng-mouseleave = "x = !!x">
+            </div> -->
+            <div class="col-lg-12 col-md-12 col-sm-12" style="margin-top: 3px;">
                 <div class="panel-default">
-                    <div class="panel panel-body" style="margin-bottom: 30px; border-radius: 0px;">
-                        <h4 style="margin-bottom: 30px;">BUDGET f {{x}}</h4>
-                        <div class="c100 green p70 progress-circle text-center">
-                            <span>70%</span>
-                            <div class="slice">
-                                <div class="bar"></div>
-                                <div class="fill"></div>
-                            </div>
-                        </div>
+                    <div class="panel panel-body text-center" style="border-radius: 0px;">
+                        <h4 style="margin-bottom: 20px;" class="text-center">INVITE TO COLABORATE</h4>
+                        <ul style="list-style: none">
+                            <!-- <li class="tl">
+                                <img src="images/guy-6.jpg" class="img-circle" width="40"> </li>
+                            <li class="tl">
+                                <img  src="images/guy-6.jpg" class="img-circle" width="40">
+                            </li>
+                            <li class="tl">
+                                <img  src="images/guy-6.jpg" class="img-circle" width="40">
+                            </li>
+                            <li class="tl">
+                                <img  src="images/guy-6.jpg" class="img-circle" width="40">
+                            </li>
+                            <li class="tl">
+                                <img  src="images/guy-6.jpg" class="img-circle" width="40">
+                            </li>
+                            <li class="tl">
+                                <i style="margin-left: 5px; margin-top: 
+                                20px;" class="fa fa-plus fa-2x" aria-hidden="true"></i>
+                            </li> -->
+                            <li style="margin-left: -40px;">
+                                <img src="images/guy-6.jpg" class="img-circle" width="40">
+                                <img style="margin-left: 20px;" src="images/guy-6.jpg" class="img-circle" width="40">
+                                <img style="margin-left: 20px;" src="images/guy-6.jpg" class="img-circle" width="40">
+                            </li>
+                            <li style="margin-left: -50px; margin-top: 10px;">
+                                <img src="images/guy-6.jpg" class="img-circle" width="40">
+                                <img style="margin-left: 20px;" src="images/guy-6.jpg" class="img-circle" width="40">
+                                <i ng-click="go('createVendor')" style="margin-left: 30px; margin-top: 
+                                20px;" class="fa fa-plus fa-2x" aria-hidden="true"></i>
+                            </li>
+                            <!-- <li style="margin-left: -40px; margin-top: 10px;">
+                                <img src="images/guy-6.jpg" class="img-circle" width="40">
+                                <img style="margin-left: 20px;" src="images/guy-6.jpg" class="img-circle" width="40">
+                                <i style="margin-left: 20px; margin-top: 
+                                20px;" class="fa fa-plus fa-2x" aria-hidden="true"></i>
+                            </li> -->
+                        </ul>
                     </div>
                 </div>
-            </div> -->
+            </div>
             <!-- Team members card-->
             <div class="col-lg-12 col-md-12 col-sm-12" style="margin-top: 8px;">
                 <div class="panel-default">
                     <div class="panel panel-body text-center" style="border-radius: 0px;">
-                        <h4 style="margin-bottom: 20px;">TEAM MEMBERS</h4>
+                        <h4 style="margin-bottom: 20px;" class="text-center">ADD VENDORS</h4>
                         <ul style="list-style: none">
+                            <!-- <li class="tl">
+                                <img src="images/guy-6.jpg" class="img-circle" width="40"> </li>
+                            <li class="tl">
+                                <img  src="images/guy-6.jpg" class="img-circle" width="40">
+                            </li>
+                            <li class="tl">
+                                <img  src="images/guy-6.jpg" class="img-circle" width="40">
+                            </li>
+                            <li class="tl">
+                                <img  src="images/guy-6.jpg" class="img-circle" width="40">
+                            </li>
+                            <li class="tl">
+                                <img  src="images/guy-6.jpg" class="img-circle" width="40">
+                            </li>
+                            <li class="tl">
+                                <i style="margin-left: 5px; margin-top: 
+                                20px;" class="fa fa-plus fa-2x" aria-hidden="true"></i>
+                            </li> -->
                             <li style="margin-left: -40px;">
                                 <img src="images/guy-6.jpg" class="img-circle" width="40">
                                 <img style="margin-left: 20px;" src="images/guy-6.jpg" class="img-circle" width="40">
+                                <img style="margin-left: 20px;" src="images/guy-6.jpg" class="img-circle" width="40">
                             </li>
-                            <li style="margin-left: -40px; margin-top: 10px;">
+                            <li style="margin-left: -50px; margin-top: 10px;">
                                 <img src="images/guy-6.jpg" class="img-circle" width="40">
-                                <i style="margin-left: 30px; margin-top: 
+                                <img style="margin-left: 20px;" src="images/guy-6.jpg" class="img-circle" width="40">
+                                <i ng-click="go('createVendor')" style="margin-left: 30px; margin-top: 
                                 20px;" class="fa fa-plus fa-2x" aria-hidden="true"></i>
                             </li>
                         </ul>
@@ -127,7 +184,7 @@
             </div>
         </div>
     </div>
-    <div class="col-lg-2 col-md-3 col-sm-5 col-xs-5" style="margin-left: 20px;">
+    <!-- <div class="col-lg-2 col-md-3 col-sm-5 col-xs-5" style="margin-left: 20px;">
         <div class="row" style="margin-top: 10px;">
             <div class="panel-default">
                 <div class="panel panel-body" style="border-radius: 0px; height: 207px; width: 180px;">
@@ -138,6 +195,6 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </div>
 </div>

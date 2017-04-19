@@ -1,90 +1,72 @@
+<script type="text/javascript">
+$(document).ready(function(){
+    // $("p").click(function(){
+    //     $(this).hide();
+    // });
+    // $('.bbtn').hide();
+});
+</script>
+<style type="text/css">
+    .bbtn{
+        display: none;
+    }
+</style>
+<div ng-controller="EventCreateCtrl">
+    <h1 style="text-align:left;float:left; color: white;">All Events</h1>
+    <button type="button" ng-click="go('eventCreate')" class="btn btn-primary btn-circle btn-lg" style="text-align:right;float:right; margin-top: 20px; background: purple; border-color: purple;"><i class="glyphicon glyphicon-plus"></i></button>
+</div>
 <div class="row row-horizon" ng-controller="MainCtrl">
-    <div class="col-lg-3 col-md-5 col-sm-7 col-xs-7 event-cards" ng-click="go('dashboard')">
-        <div id="event-img-1" style="background: url(./images/card-bg1.jpg);
+    <div class="col-lg-3 col-md-5 col-sm-7 col-xs-7 event-cards" ng-repeat="x in myData">
+        <div id="{{x.id}}">
+            <div id="event-img-{{x.id}}" ng-mouseover="show(x.id)" ng-mouseleave="hide(x.id)" style="background: url({{x.background}});
                 height: 250px;
                 background-size: cover;
+                position: relative;
                 background-position: center center;">
-        </div>
-        <div class="card-extras">
-            <h3 class="text-center">FREDERICK WEDDING</h3>
-            <div class="col-lg-6 col-md-6 col-sm-6">
-                <div class="c100 orange p80 progress-circle">
-                    <span>80%</span>
-                    <div class="slice">
-                        <div class="bar"></div>
-                        <div class="fill"></div>
-                    </div>
+
+                <div style="position: absolute;  width: 100%; height: 100%; background:rgba(21, 20, 20, 0.65); " id="btn_{{x.id}}" class="bbtn">
+                    <button class="btn btn-default" ng-click="go('dashboard')" style="background: black; margin-left: 29%; margin-top: 35%; border-radius: 0px; color: white; border-color: black; text-align: center; width: 150px;">OPEN</button>
                 </div>
-                <p class="text-center" style="margin-top: 10px;">COMPELITION</p>
             </div>
-            <div class="col-lg-6 col-md-6 col-sm-6">
-                <div class="c100 p80 progress-circle">
-                    <span>80%</span>
+            <div class="card-extras">
+                <h4 class="text-center">{{x.title}}</h4>
+                <div class="c100 green p{{x.progress}} progress-circle">
+                    <span>{{x.progress}}%</span>
                     <div class="slice">
                         <div class="bar"></div>
                         <div class="fill"></div>
                     </div>
                 </div>
-                <p class="text-center" style="margin-top: 10px;">BUDGET</p>
+                <p class="text-center" style="padding: 0px; margin-top: 12px; margin-bottom: -1px;"><span>{{x.tag}}</span></p>
             </div>
         </div>
     </div>
-    <div class="col-lg-3 col-md-5 col-sm-7 col-xs-7 event-cards">
+    <!-- <div class="col-lg-3 col-md-5 col-sm-7 col-xs-7 event-cards " ng-click="go('dashboard')">
         <div id="event-img-1" style="background: url(./images/bg2.jpg);
                 height: 250px;
                 background-size: cover;
                 background-position: center center;">
         </div>
         <div class="card-extras">
-            <h3 class="text-center">ASANA YOGA RETREAT</h3>
-            <div class="c100 green p80 progress-circle">
+            <h4 class="text-center">ASANA YOGA RETREAT</h4>
+            <div class="c100 orange p80 progress-circle">
                 <span>80%</span>
                 <div class="slice">
                     <div class="bar"></div>
                     <div class="fill"></div>
                 </div>
             </div>
-            <p style="padding: 10px;"><span class="pull-left">ARCHIVE</span><span class="pull-right">CASE STUDY</span></p>
+            <p style="padding: 10px;"><span class="pull-left">ARCHIVE</span></p>
         </div>
-    </div>
-    <div class="col-lg-3 col-md-5 col-sm-7 col-xs-7 event-cards">
+    </div> -->
+    <!-- <div class="col-lg-3 col-md-5 col-sm-7 col-xs-7 event-cards" ng-click="go('dashboard')">
         <div id="event-img-1" style="background: url(./images/bg.jpg);
                 height: 250px;
                 background-size: cover;
                 background-position: center center;">
         </div>
         <div class="card-extras">
-            <h3 class="text-center">FREDERICK WEDDING</h3>
-            <div class="col-lg-6 col-md-6 col-sm-6">
-                <div class="c100 orange p80 progress-circle">
-                    <span>80%</span>
-                    <div class="slice">
-                        <div class="bar"></div>
-                        <div class="fill"></div>
-                    </div>
-                </div>
-                <p class="text-center" style="margin-top: 10px;">COMPELITION</p>
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-6">
-                <div class="c100 p80 progress-circle">
-                    <span>80%</span>
-                    <div class="slice">
-                        <div class="bar"></div>
-                        <div class="fill"></div>
-                    </div>
-                </div>
-                <p class="text-center" style="margin-top: 10px;">BUDGET</p>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-3 col-md-5 col-sm-7 col-xs-7 event-cards">
-        <div id="event-img-1" style="background: url(./images/bg2.jpg);
-                height: 250px;
-                background-size: cover;
-                background-position: center center;">
-        </div>
-        <div class="card-extras">
-            <h3 class="text-center">ASANA YOGA RETREAT</h3>
+            <h4 class="text-center">FREDERICK WEDDING</h4>
             <div class="c100 green p80 progress-circle">
                 <span>80%</span>
                 <div class="slice">
@@ -92,7 +74,25 @@
                     <div class="fill"></div>
                 </div>
             </div>
-            <p style="padding: 10px;"><span class="pull-left">ARCHIVE</span><span class="pull-right">CASE STUDY</span></p>
+            <p class="text-center" style="padding: 0px; margin-top: 12px; margin-bottom: -1px;"><span>COMPELITION</span></p>
         </div>
-    </div>
+    </div> -->
+    <!-- <div class="col-lg-3 col-md-5 col-sm-7 col-xs-7 event-cards" ng-click="go('dashboard')">
+        <div id="event-img-1" style="background: url(./images/bg2.jpg);
+                height: 250px;
+                background-size: cover;
+                background-position: center center;">
+        </div>
+        <div class="card-extras">
+            <h4 class="text-center">ASANA YOGA RETREAT</h4>
+            <div class="c100 blue p80 progress-circle">
+                <span>80%</span>
+                <div class="slice">
+                    <div class="bar"></div>
+                    <div class="fill"></div>
+                </div>
+            </div>
+            <p style="padding: 10px;"><span class="pull-left">ARCHIVE</span></p>
+        </div>
+    </div> -->
 </div>

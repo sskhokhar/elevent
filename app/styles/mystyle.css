@@ -85,7 +85,7 @@ p{
     padding: 0 30px;
     height: 100%;
     /*background-color:white;*/
-    background-image: url(../images/bgg.jpg);
+    /*background-image: url(../images/plane.jpg);*/
     background-position: center;
     background-size: cover;
     overflow-x: hidden;
@@ -109,6 +109,23 @@ p{
 .card-extras {
     background: white;
     padding: 10px;
+}
+
+.entery-cards {
+    margin: 10px 20px 20px 20px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    
+    color:white;
+    padding: 0px;
+    border: solid 2px white;
+}
+
+.entery-extras {
+    /*background: white;*/
+    background-color: rgba(0, 0, 0, 0.33);
+    padding: 10px;
+    /*opacity: 0.7;*/
 }
 
 .dashboard-card ul{

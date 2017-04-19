@@ -1,22 +1,22 @@
 <style type="text/css">
 
 </style>
-<div >
+<div ng-controller = "TimelineCtrl">
     <div class="row" style="width: 98%;">
         <div class="timeline-centered">
-            <article class="timeline-entry">
+            <article class="timeline-entry" ng-class-even="'left-aligned'" ng-class-odd="''" ng-repeat = "x in myData">
                 <div class="timeline-entry-inner">
-                    <time class="timeline-time" datetime="2014-01-10T03:45"><span>03:45 AM</span> <span>Today</span></time>
+                    <time class="timeline-time" datetime="2014-01-10T03:45"><span>{{x.time}}</span> <span>Today</span></time>
                     <div class="timeline-icon">
                         <i class="entypo-feather"></i>
                     </div>
                     <div class="timeline-label borderleft">
-                        <h2>FLOWER SET UP</h2>
-                        <p>Tolerably earnestly middleton extremely distrusts she boy now not. Add and offered prepare how cordial two promise. Greatly who affixed suppose but enquire compact prepare all put. Added forth chief trees but rooms think may.</p>
+                        <h2>{{x.title}}</h2>
+                        <p>{{x.description}}.</p>
                     </div>
                 </div>
             </article>
-            <article class="timeline-entry left-aligned">
+           <!--  <article class="timeline-entry left-aligned">
                 <div class="timeline-entry-inner">
                     <time class="timeline-time" datetime="2014-01-10T03:45"><span>03:45 AM</span> <span>Today</span></time>
                     <div class="timeline-icon">
@@ -27,8 +27,8 @@
                         <p>Tolerably earnestly middleton extremely distrusts she boy now not. Add and offered prepare how cordial two promise. Greatly who affixed suppose but enquire compact prepare all put. Added forth chief trees but rooms think may.</p>
                     </div>
                 </div>
-            </article>
-            <article class="timeline-entry">
+            </article> -->
+            <!-- <article class="timeline-entry">
                 <div class="timeline-entry-inner">
                     <time class="timeline-time" datetime="2014-01-10T03:45"><span>03:45 AM</span> <span>Today</span></time>
                     <div class="timeline-icon">
@@ -48,7 +48,7 @@
                         </p>
                     </div>
                 </div>
-            </article>
+            </article> -->
             <!-- <article class="timeline-entry">
     
     <div class="timeline-entry-inner">
