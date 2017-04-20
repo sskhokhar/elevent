@@ -1,0 +1,10 @@
+{
+    "user": [
+        {
+            "id": "1",
+            "name": "Muhammad Usama",
+            "img": "images/guy-6.jpg",
+            "email": "test@test.com"
+        }
+    ]
+}

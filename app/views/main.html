@@ -1,5 +1,5 @@
 <script type="text/javascript">
-$(document).ready(function(){
+$(document).ready(function() {
     // $("p").click(function(){
     //     $(this).hide();
     // });
@@ -7,9 +7,41 @@ $(document).ready(function(){
 });
 </script>
 <style type="text/css">
-    .bbtn{
-        display: none;
-    }
+.bbtn {
+    display: none;
+}
+
+.progress-wrapper {
+    position: relative;
+    margin: 20px auto;
+    font-size: 40px;
+}
+
+.current {
+    position: absolute;
+    color: #bbb;
+    font-weight: 100;
+    line-height: 1;
+    top: 46%;
+    bottom: auto;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    font-size: 25px;
+}
+
+#myGradient {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#b3dced+0,29b8e5+50,bce0ee+100;Blue+Pipe */
+    background: rgb(179, 220, 237);
+    /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(179, 220, 237, 1) 0%, rgba(41, 184, 229, 1) 50%, rgba(188, 224, 238, 1) 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(179, 220, 237, 1) 0%, rgba(41, 184, 229, 1) 50%, rgba(188, 224, 238, 1) 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(179, 220, 237, 1) 0%, rgba(41, 184, 229, 1) 50%, rgba(188, 224, 238, 1) 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#b3dced', endColorstr='#bce0ee', GradientType=0);
+    /* IE6-9 */
+}
 </style>
 <div ng-controller="EventCreateCtrl">
     <h1 style="text-align:left;float:left; color: white;">All Events</h1>
@@ -23,19 +55,31 @@ $(document).ready(function(){
                 background-size: cover;
                 position: relative;
                 background-position: center center;">
-
                 <div style="position: absolute;  width: 100%; height: 100%; background:rgba(21, 20, 20, 0.65); " id="btn_{{x.id}}" class="bbtn">
                     <button class="btn btn-default" ng-click="go('dashboard')" style="background: black; margin-left: 29%; margin-top: 35%; border-radius: 0px; color: white; border-color: black; text-align: center; width: 150px;">OPEN</button>
                 </div>
             </div>
-            <div class="card-extras">
+            <div class="card-extras text-center">
                 <h4 class="text-center">{{x.title}}</h4>
-                <div class="c100 green p{{x.progress}} progress-circle">
+                <!-- <div class="c100 green p{{x.progress}} progress-circle">
                     <span>{{x.progress}}%</span>
                     <div class="slice">
                         <div class="bar"></div>
                         <div class="fill"></div>
                     </div>
+                </div> -->
+                <div class="progress-wrapper">
+                    <div class="current">
+                        {{x.progress}}<span style="font-size: 12px;">%</span>
+                    </div>
+                    <round-progress max="100" current="x.progress" color="url(#gclr)" bgcolor="#eaeaea" radius="70" stroke="4" semi="false" rounded="true" clockwise="true" responsive="false" duration="800" animation="easeInCirc" animation-delay="0">
+                        <svg>
+                            <linearGradient id="gclr" x1="0" x2="0" y1="0" y2="1">
+                                <stop offset="35%" stop-color="#a500bf" />
+                                <stop offset="60%" stop-color="#1de5e2" />
+                            </linearGradient>
+                        </svg>
+                    </round-progress>
                 </div>
                 <p class="text-center" style="padding: 0px; margin-top: 12px; margin-bottom: -1px;"><span>{{x.tag}}</span></p>
             </div>

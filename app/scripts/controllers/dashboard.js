@@ -7,6 +7,7 @@ angular.module('EleventApp')
     $rootScope.bg = "./images/card-bg1.jpg";
     $scope.timeline;
     $scope.colaborator;
+    $scope.vendors;
 
     $scope.go = function(state){
 
@@ -15,6 +16,7 @@ angular.module('EleventApp')
 
     $http.get("scripts/dashboard.json").then(function(response) {
         $scope.timeline = response.data.timeline;
-        $scope.colaborator = response.data.colaborator;
+        $scope.colaborator = response.data.colaborators;
+        $scope.vendors = response.data.vendors;
     });
   });

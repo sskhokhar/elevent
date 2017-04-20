@@ -6,7 +6,8 @@
   'ngSanitize',
   'ui.router',
   '720kb.datepicker',
-  'ngFileUpload'
+  'ngFileUpload',
+  'angular-svg-round-progressbar'
 ])
   
   .config(function ($stateProvider, $urlRouterProvider) {
