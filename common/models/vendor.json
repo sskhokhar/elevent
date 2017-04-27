@@ -1,28 +1,54 @@
 {
-    "name": "Vendor",
-    "base": "Eventmanager",
-    "idInjection": true,
-    "options": {
-        "validateUpsert": true
+  "name": "Vendor",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "companyName": {
+      "type": "string"
     },
-    "properties": {
-        "address": {
-            "type": "string"
-        },
-        "image": {
-            "type": "string"
-        },
-        "businessName": {
-            "type": "string"
-        },
-        "checkListIds": {
-            "type": [
-                "string"
-            ]
-        }
+    "name_1": {
+      "type": "string"
     },
-    "validations": [],
-    "relations": {},
-    "acls": [],
-    "methods": {}
+    "name_2": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "website": {
+      "type": "string"
+    },
+    "image": {
+      "type": "string"
+    },
+    "pointOfContact": {
+      "type": "object"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "task": {
+      "type": "belongsTo",
+      "model": "Task",
+      "foreignKey": ""
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "superUser",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
 }

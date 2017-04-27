@@ -1,16 +1,16 @@
 {
-  "db": {
-    "name": "db",
-    "connector": "memory"
-  },
-  "mongoDb": {
-    "host": "localhost",
-    "port": 27017,
-    "url": "",
-    "database": "",
-    "password": "",
-    "name": "mongoDb",
-    "user": "",
-    "connector": "mongodb"
-  }
+    "db": {
+        "name": "db",
+        "connector": "memory"
+    },
+    "mongoDb": {
+        "host": "localhost",
+        "port": 27017,
+        "url": "",
+        "database": "elevent",
+        "password": "",
+        "name": "mongoDb",
+        "user": "",
+        "connector": "mongodb"
+    }
 }

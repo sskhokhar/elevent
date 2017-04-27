@@ -19,29 +19,24 @@
     },
     "AccessToken": {
         "dataSource": "mongoDb",
-        "public": false
+        "public": true
     },
     "ACL": {
         "dataSource": "mongoDb",
-        "public": false
+        "public": true
     },
     "RoleMapping": {
         "dataSource": "mongoDb",
-        "public": false
+        "public": true,
+        "options": {
+            "strictObjectIDCoercion": true
+        }
     },
     "Role": {
         "dataSource": "mongoDb",
-        "public": false
-    },
-    "Eleventuser": {
-        "dataSource": "mongoDb",
-        "public": false
-    },
-    "Eventmanager": {
-        "dataSource": "mongoDb",
         "public": true
     },
-    "Vendor": {
+    "Eventmanager": {
         "dataSource": "mongoDb",
         "public": true
     },
@@ -53,7 +48,7 @@
         "dataSource": "mongoDb",
         "public": true
     },
-    "Checklist": {
+    "Vendor": {
         "dataSource": "mongoDb",
         "public": true
     }

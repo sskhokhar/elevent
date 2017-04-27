@@ -1,38 +1,59 @@
 {
-    "name": "Event",
-    "base": "PersistedModel",
-    "idInjection": true,
-    "options": {
-        "validateUpsert": true
+  "name": "Event",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "title": {
+      "type": "string"
     },
-    "properties": {
-        "title": {
-            "type": "string"
-        },
-        "description": {
-            "type": "string"
-        },
-        "location": {
-            "type": "string"
-        }
+    "date": {
+      "type": "date"
     },
-    "validations": [],
-    "relations": {
-        "userId": {
-            "type": "belongsTo",
-            "model": "Eventmanager",
-            "foreignKey": "eventManagerId"
-        },
-        "tasks": {
-            "type": "referencesMany",
-            "model": "Task",
-            "foreignKey": "taskIds",
-            "options": {
-                "validate": true,
-                "forceId": false
-            }
-        }
+    "guests": {
+      "type": "number"
     },
-    "acls": [],
-    "methods": {}
+    "venue": {
+      "type": "string"
+    },
+    "image": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "collaboratorIds": {
+      "type": [
+        "string"
+      ]
+    }
+  },
+  "validations": [],
+  "relations": {
+    "eventManagerId": {
+      "type": "belongsTo",
+      "model": "Eventmanager",
+      "foreignKey": "eventManagerId"
+    },
+    "tasks": {
+      "type": "referencesMany",
+      "model": "Task",
+      "foreignKey": "taskIds",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "superUser",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
 }

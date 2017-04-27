@@ -1,44 +1,52 @@
 {
-    "name": "Task",
-    "base": "PersistedModel",
-    "idInjection": true,
-    "options": {
-        "validateUpsert": true
+  "name": "Task",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "title": {
+      "type": "string"
     },
-    "properties": {
-        "title": {
-            "type": "string"
-        },
-        "description": {
-            "type": "string"
-        },
-        "startTime": {
-            "type": "date"
-        },
-        "endTime": {
-            "type": "date"
-        },
-        "location": {
-            "type": "string"
-        }
+    "date": {
+      "type": "date"
     },
-    "validations": [],
-    "relations": {
-        "eventId": {
-            "type": "belongsTo",
-            "model": "Event",
-            "foreignKey": "eventId"
-        },
-        "checklists": {
-            "type": "referencesMany",
-            "model": "Checklist",
-            "foreignKey": "checklistIds",
-            "options": {
-                "validate": true,
-                "forceId": false
-            }
-        }
+    "description": {
+      "type": "string"
     },
-    "acls": [],
-    "methods": {}
+    "location": {
+      "type": "string"
+    },
+    "isDone": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "validations": [],
+  "relations": {
+    "event": {
+      "type": "belongsTo",
+      "model": "Event",
+      "foreignKey": ""
+    },
+    "vendor": {
+      "type": "referencesMany",
+      "model": "Vendor",
+      "foreignKey": "vendorIds",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "superUser",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
 }
