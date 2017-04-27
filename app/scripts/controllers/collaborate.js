@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('EleventApp')
-  .controller('VendorCtrl', function ($state,$scope,$rootScope, $http) {
+  .controller('CollaborateCtrl', function ($state,$scope,$rootScope, $http) {
     $scope.x = true;
-    $rootScope.title = "Vendor Contact";
+    $rootScope.title = "Invite to Collaborate";
     // $rootScope.bg = "./images/card-bg1.jpg";
     $scope.vendors = "";
 

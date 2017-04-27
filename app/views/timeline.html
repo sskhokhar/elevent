@@ -1,22 +1,61 @@
-<style type="text/css">
+<!-- <script type="text/javascript">
+    $(document).ready(function() {
+    // $("p").click(function(){
+    //     $(this).hide();
+    // });
+    // $('.bbtn').hide();
 
-</style>
-<div ng-controller = "TimelineCtrl">
+    // function deleteDiv(id){
+    //     alert("delete clicked"+id);
+    // }
+});
+</script> -->
+<div ng-controller="TimelineCtrl">
     <div class="row" style="width: 98%;">
         <div class="timeline-centered">
-            <article class="timeline-entry" ng-class-even="'left-aligned'" ng-class-odd="''" ng-repeat = "x in myData">
-                <div class="timeline-entry-inner">
-                    <time class="timeline-time" datetime="2014-01-10T03:45"><span>{{x.time}}</span> <span>Today</span></time>
-                    <div class="timeline-icon">
-                        <i class="entypo-feather"></i>
+            <article class="timeline-entry" ng-class-even="'left-aligned'" ng-class-odd="''" ng-repeat="x in myData" id="card_{{x.id}}">
+                <div>
+                    <div class="timeline-entry-inner">
+                        <time class="timeline-time" datetime="2014-01-10T03:45"><span>{{x.time}}</span> <span>Today</span></time>
+                        <div class="timeline-icon">
+                            <i class="entypo-feather"></i>
+                        </div>
+                        <div class="timeline-label borderleft">
+                            <div class="dropdown">
+                                <!-- <a href style="color: black;"> -->
+                                <i style="margin-right: -15px; margin-top: -15px;" class="fa fa-ellipsis-v fa-1x pull-right dropdown-toggle" data-toggle="dropdown" type="button"></i>
+                                <!-- </a> -->
+                                <ul class="dropdown-menu pull-right" style="margin-right: -12px;">
+                                    <li><a href>Edit</a></li>
+                                    <li><a href data-toggle="modal" data-target="#myModal{{x.id}}">Delete</a></li>
+                                </ul>
+                            </div>
+                            <h2><input type="checkbox" ng-checked="{{x.done}}"> {{x.title}}</h2>
+                            <p>{{x.description}}.</p>
+                        </div>
                     </div>
-                    <div class="timeline-label borderleft">
-                        <h2>{{x.title}}</h2>
-                        <p>{{x.description}}.</p>
+                </div>
+                <!-- Modal -->
+                <div id="myModal{{x.id}}" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content" style="border-radius: 0px;">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Delete</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>Are you sure you want to delete this task?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="delCard(x.id)">Yes</button>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">No</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </article>
-           <!--  <article class="timeline-entry left-aligned">
+            <!--  <article class="timeline-entry left-aligned">
                 <div class="timeline-entry-inner">
                     <time class="timeline-time" datetime="2014-01-10T03:45"><span>03:45 AM</span> <span>Today</span></time>
                     <div class="timeline-icon">

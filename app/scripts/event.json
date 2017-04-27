@@ -5,28 +5,28 @@
             "title": "AAMIR'S WEDDING",
             "background": "./images/card-bg1.jpg",
             "progress": "79",
-            "tag": "COMPELITION"
+            "tag": "COMPLETION"
         },
         {
             "id": "2",
             "title": "BILAL'S WEDDING",
             "background": "./images/card-bg2.jpg",
             "progress": "49",
-            "tag": "COMPELITION"
+            "tag": "COMPLETION"
         },
         {
             "id": "3",
             "title": "ASANA YOGA RETREAT",
             "background": "./images/card-bg3.jpg",
             "progress": "59",
-            "tag": "ARCHIVE"
+            "tag": "COMPLETION"
         },
         {
             "id": "4",
             "title": "FREDERICK WEDDING",
             "background": "./images/card-bg1.jpg",
             "progress": "60",
-            "tag": "COMPELITION"
+            "tag": "COMPLETION"
         }
     ]
 }

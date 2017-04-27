@@ -6,7 +6,8 @@
             "title": "Pick up flowers",
             "description": "Pick up flowers from market and set on stage",
             "location": "abc",
-            "vendor": "Fredderick"
+            "vendor": "Fredderick",
+            "done": "true"
         },
         {
             "id": "2",
@@ -14,7 +15,8 @@
             "title": "Setup Venue",
             "description": "Setup stage on wedding hall which includes lights, stages and sofas",
             "location": "abc",
-            "vendor": "Billy"
+            "vendor": "Billy",
+            "done": "false"
         },
         {
             "id": "3",
@@ -22,7 +24,8 @@
             "title": "Makeup",
             "description": "Start bridal makup in xyz beauty saloon",
             "location": "abc",
-            "vendor": "Ally"
+            "vendor": "Ally",
+            "done": "true"
         },
         {
             "id": "4",
@@ -30,7 +33,17 @@
             "title": "Dinner served",
             "description": "Dinner need to served in wedding hall",
             "location": "abc",
-            "vendor": "Malik"
+            "vendor": "Malik",
+            "done": "false"
+        },
+        {
+            "id": "5",
+            "time": "5:30pm",
+            "title": "Covers on Tables",
+            "description": "Put covers of cloth on all teables",
+            "location": "abc",
+            "vendor": "Dany",
+            "done": "true"
         }
     ],
     "colaborators": [
@@ -57,24 +70,59 @@
     ],
     "vendors": [
         {
+            "CompanyName": "Flowerezia",
             "id": "1",
-            "img": "images/guy-6.jpg"
+            "img": "images/guy-6.jpg",
+            "name1": "Aamir Rashid",
+            "name2": "Bilal Malik",
+            "contact": "0322123456",
+            "email": "admin@admin.com",
+            "website": "www.abc.com",
+            "address": "XYZ Corporation, ABC Street"
         },
         {
             "id": "2",
-            "img": "images/guy-6.jpg"
+            "CompanyName": "Woodenwear",
+            "img": "images/guy-6.jpg",
+            "name1": "Aamir Rashid",
+            "name2": "Bilal Malik",
+            "contact": "0322123456",
+            "email": "admin@admin.com",
+            "website": "www.abc.com",
+            "address": "XYZ Corporation, ABC Street"
         },
         {
+            "CompanyName": "XYZ Designs",
             "id": "3",
-            "img": "images/guy-6.jpg"
+            "img": "images/guy-6.jpg",
+            "name1": "Aamir Rashid",
+            "name2": "Bilal Malik",
+            "contact": "0322123456",
+            "email": "admin@admin.com",
+            "website": "www.abc.com",
+            "address": "XYZ Corporation, ABC Street"
         },
         {
             "id": "4",
-            "img": "images/guy-6.jpg"
+            "CompanyName": "OBC Vendors",
+            "img": "images/guy-6.jpg",
+            "name1": "Aamir Rashid",
+            "name2": "Bilal Malik",
+            "contact": "0322123456",
+            "email": "admin@admin.com",
+            "website": "www.abc.com",
+            "address": "XYZ Corporation, ABC Street"
         },
         {
+            "CompanyName": "Lightners",
             "id": "5",
-            "img": "images/guy-6.jpg"
+            "img": "images/guy-6.jpg",
+            "name1": "Aamir Rashid",
+            "name2": "Bilal Malik",
+            "contact": "0322123456",
+            "email": "admin@admin.com",
+            "website": "www.abc.com",
+            "address": "XYZ Corporation, ABC Street"
         }
     ]
 }

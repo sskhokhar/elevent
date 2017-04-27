@@ -8,14 +8,22 @@ angular.module('EleventApp')
         $rootScope.bg = "../images/plane.jpg";
         $scope.menu = false;
 
-        $scope.xb = false;
-
         $scope.myData;
         $rootScope.User = {};
         $rootScope.User.id;
         $rootScope.User.name;
         $rootScope.User.img;
         $rootScope.User.email;
+
+        $scope.$state = $state;
+        $state.current.name;
+
+
+        $scope.showMenu = function(){
+            if ($state.current.name != "index") {
+            $scope.menu = !$scope.menu;
+            }
+        }
 
         $scope.show = function(i) {
             $("#btn_" + i).show();

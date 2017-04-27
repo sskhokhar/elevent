@@ -7,53 +7,48 @@
 .cl {
     margin-top: 25px;
 }
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 5px;
+}
 </style>
 <div class="row row-horizon" ng-controller="DashboardCtrl">
-    <div class="col-lg-3 col-md-5 col-sm-7 col-xs-7 event-cards shadow" id="">
+    <div class="col-lg-3 col-md-5 col-sm-7 col-xs-7 event-cards shadow" id="" style="">
         <a href style="color: black;" ng-click="go('timeline')"> <span class="pull-right" style="padding: 8px;"><i  class="fa fa-ellipsis-v fa-1x"></i></span>
         </a>
-        <h4 style="margin-left: 20px; margin-top: 20px;">DUE THIS WEEK</h4>
+        <h4 style="margin-left: 20px; margin-top: 20px; margin-bottom: 20px;">DUE THIS WEEK</h4>
         <div class="card-extras dashboard-card">
-            <ul>
-                <li style="color: #5ef2ed;" ng-repeat="t in timeline">
-                    <div class="col-lg-4 col-md-4 col-sm-4" style="color: #898888;">
-                        <span>{{t.time}}</span>
-                    </div>
-                    <div class="col-lg-7 col-md-7 col-sm-7" style="color: #898888;">
-                        <span>{{t.title}}</span>
-                        <span style="font-size: 10px;"> {{t.vendor}} </span>
-                    </div>
-                </li>
-                <!-- <li style="color: #5ef2ed;">
-                    <div class="col-lg-4 col-md-4 col-sm-4" style="color: #898888;">
-                        <span>3:30pm</span>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6" style="color: #898888;">
-                        <span>Setup Venue</span>
-                        <span style="font-size: 10px;"> Ally </span>
-                    </div>
-                </li>
-                <li style="color: #5ef2ed;">
-                    <div class="col-lg-4 col-md-4 col-sm-4" style="color: #898888;">
-                        <span>4:30pm</span>
-                    </div>
-                    <div class="col-lg-7 col-md-6 col-sm-6" style="color: #898888;">
-                        <span>Makup <br></span>
-                        <span> <img src="images/guy-6.jpg" class="img-circle" width="20"> <img src="images/guy-6.jpg" class="img-circle" width="20"></span>
-                    </div>
-                </li>
-                <li style="color: #5ef2ed;">
-                    <div class="col-lg-4 col-md-4 col-sm-4" style="color: #898888;">
-                        <span>7:30pm</span>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6" style="color: #898888;">
-                        <span>Dinner served</span>
-                        <span style="font-size: 10px;"> Billy </span>
-                    </div>
-                </li> -->
-            </ul>
+            <div style="height: 300px; overflow-y: scroll;">
+                <!-- <ul>
+                    <li style="color: #5ef2ed;" ng-repeat="t in timeline">
+                        <div class="col-lg-4 col-md-4 col-sm-4" style="color: #898888;">
+                            <span>{{t.time}}</span>
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-sm-7" style="color: #898888;">
+                            <span style="display: block;">{{t.title}}</span>
+                            <span style="font-size: 10px;"> {{t.vendor}} </span>
+                        </div>
+                    </li>
+                </ul> -->
+                <!-- <div id="checkboxes"> -->
+                <ul style="list-style: none; margin-left: -30px;">
+                    <li ng-repeat="t in timeline">
+                        <input type="checkbox" ng-checked="{{t.done}}" style="float: left;" class="col-lg-1 col-md-1">
+                        <div class="col-lg-4 col-md-4 col-sm-4" style="color: #898888;">
+                            <span>{{t.time}}</span>
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-sm-7" style="color: #898888;">
+                            <span style="display: block;">{{t.title}}</span>
+                            <span style="font-size: 10px;"> {{t.vendor}} </span>
+                        </div>
+                        <div class="clearfix"></div>
+                    </li>
+                </ul>
+                <!-- </div> -->
+            </div>
             <div class="pull-right">
-                <button type="button" ng-click="go('timelineCreate')" class="btn btn-primary btn-circle btn-lg" style="text-align:right;float:right; margin-top: 20px; margin-bottom: 15px; margin-right: 10px; background: purple; border-color: purple;"><i class="glyphicon glyphicon-plus"></i></button>
+                <button type="button" ng-click="go('timelineCreate')" class="btn btn-primary btn-circle btn-lg" style="text-align:right;float:right; margin-top: 10px; margin-bottom: 15px; margin-right: 10px; background: purple; border-color: purple;"><i class="glyphicon glyphicon-plus"></i></button>
                 <!-- <button class="btn-default btn-lg btn-custom" ng-click="go('timeline')" style="margin-top: 30px; margin-bottom: 10px;">View Full Timeline</button> -->
             </div>
         </div>
@@ -125,11 +120,10 @@
                         </div> -->
                         <div>
                             <div class="col-lg-4 col-md-4 col-sm-4 cl">
-                                <a style="color: black;" href><i ng-click="go('createVendor')" style="margin-top: 
+                                <a style="color: black;" ng-click="go('collaborate')"><i ng-click="go('collaborate')" style="margin-top: 
                                 10px;" class="fa fa-plus fa-2x" aria-hidden="true"></i></a>
                             </div>
                         </div>
-                        
                         <!-- </ul> -->
                     </div>
                 </div>
@@ -157,12 +151,10 @@
                         </div> -->
                         <div>
                             <div class="col-lg-4 col-md-4 col-sm-4 cl">
-                                <a style="color: black;" href><i ng-click="go('createVendor')" style="margin-top: 
+                                <a style="color: black;" ng-click="go('createVendor')"><i ng-click="go('createVendor')" style="margin-top: 
                                 10px;" class="fa fa-plus fa-2x" aria-hidden="true"></i></a>
                             </div>
                         </div>
-                        
-                        
                         <!-- </ul> -->
                     </div>
                 </div>

@@ -1,0 +1,21 @@
+<div class="container" ng-controller="VendorCtrl">
+    <div class="row">
+        <div class="col-lg-3 col-md-5 col-sm-7 col-xs-7 event-cards shadow" ng-repeat="v in vendors" style="padding: 10px;">
+            <div id="{{v.id}}">
+                <h3 style="margin-left: 20px;">{{v.CompanyName}}</h3>
+                <div class="card-extras">
+                    <div class="col-lg-5 col-md-5 col-sm-5">
+                        <img src="images/guy-6.jpg">
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7">
+                        <p>{{v.name1}}</p>
+                        <p>{{v.contact}}</p>
+                        <p>{{v.address}}</p>
+                        <p>{{v.email}}</p>
+                        <p>{{v.website}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -67,6 +67,13 @@
       templateUrl: 'views/vendor.html',
       controller: 'VendorCtrl'
     })
+
+      .state('collaborate', {
+        url: '/collaborate',
+      templateUrl: 'views/collaborate.html',
+      controller: 'CollaborateCtrl'
+    })
+
   })
 
 
