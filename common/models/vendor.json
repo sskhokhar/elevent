@@ -1,54 +1,52 @@
 {
-  "name": "Vendor",
-  "base": "PersistedModel",
-  "idInjection": true,
-  "options": {
-    "validateUpsert": true
-  },
-  "properties": {
-    "companyName": {
-      "type": "string"
+    "name": "Vendor",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "options": {
+        "validateUpsert": true
     },
-    "name_1": {
-      "type": "string"
+    "properties": {
+        "companyName": {
+            "type": "string"
+        },
+        "name_1": {
+            "type": "string"
+        },
+        "name_2": {
+            "type": "string"
+        },
+        "address": {
+            "type": "string"
+        },
+        "phone": {
+            "type": "string"
+        },
+        "email": {
+            "type": "string"
+        },
+        "website": {
+            "type": "string"
+        },
+        "image": {
+            "type": "string"
+        },
+        "pointOfContact": {
+            "type": "object"
+        }
     },
-    "name_2": {
-      "type": "string"
+    "validations": [],
+    "relations": {
+        "task": {
+            "type": "belongsTo",
+            "model": "Event",
+            "foreignKey": ""
+        }
     },
-    "address": {
-      "type": "string"
-    },
-    "phone": {
-      "type": "string"
-    },
-    "email": {
-      "type": "string"
-    },
-    "website": {
-      "type": "string"
-    },
-    "image": {
-      "type": "string"
-    },
-    "pointOfContact": {
-      "type": "object"
-    }
-  },
-  "validations": [],
-  "relations": {
-    "task": {
-      "type": "belongsTo",
-      "model": "Task",
-      "foreignKey": ""
-    }
-  },
-  "acls": [
-    {
-      "accessType": "*",
-      "principalType": "ROLE",
-      "principalId": "superUser",
-      "permission": "ALLOW"
-    }
-  ],
-  "methods": {}
+    "acls": [{
+        "accessType": "*",
+        "principalType": "ROLE",
+        "principalId": "superUser",
+        "permission": "ALLOW"
+    }],
+    "methods": {}
 }
