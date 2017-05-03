@@ -1,43 +1,43 @@
 {
-  "name": "Eventmanager",
-  "base": "User",
-  "idInjection": true,
-  "options": {
-    "validateUpsert": true
-  },
-  "properties": {
-    "firstname": {
-      "type": "string"
+    "name": "Eventmanager",
+    "base": "User",
+    "idInjection": true,
+    "options": {
+        "validateUpsert": true
     },
-    "lastname": {
-      "type": "string"
+    "properties": {
+        "firstname": {
+            "type": "string"
+        },
+        "lastname": {
+            "type": "string"
+        },
+        "profilePicture": {
+            "type": "string"
+        },
+        "companyName": {
+            "type": "string"
+        }
     },
-    "profilePicture": {
-      "type": "string"
+    "validations": [],
+    "relations": {
+        "events": {
+            "type": "referencesMany",
+            "model": "Event",
+            "foreignKey": "eventIds",
+            "options": {
+                "validate": true,
+                "forceId": false
+            }
+        }
     },
-    "companyName": {
-      "type": "string"
-    }
-  },
-  "validations": [],
-  "relations": {
-    "events": {
-      "type": "referencesMany",
-      "model": "Event",
-      "foreignKey": "eventIds",
-      "options": {
-        "validate": true,
-        "forceId": false
-      }
-    }
-  },
-  "acls": [
-    {
-      "accessType": "*",
-      "principalType": "ROLE",
-      "principalId": "superUser",
-      "permission": "ALLOW"
-    }
-  ],
-  "methods": {}
+    "acls": [
+        /* {
+           "accessType": "*",
+           "principalType": "ROLE",
+           "principalId": "superUser",
+           "permission": "ALLOW"
+         } */
+    ],
+    "methods": {}
 }
