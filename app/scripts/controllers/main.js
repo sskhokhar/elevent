@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('EleventApp')
-    .controller('MainCtrl', function($state, $scope, $rootScope, $http) {
+    .controller('MainCtrl', function($state, $scope, $rootScope, $http, AuthService, Event) {
 
         $scope.Title = "Elevent";
         $rootScope.title = "Elevent";
@@ -9,21 +9,18 @@ angular.module('EleventApp')
         $scope.menu = false;
 
         $scope.myData;
-        $rootScope.User = {};
-        $rootScope.User.id;
-        $rootScope.User.name;
-        $rootScope.User.img;
-        $rootScope.User.email;
+
 
         $scope.$state = $state;
         $state.current.name;
 
 
-        $scope.showMenu = function(){
+        $scope.showMenu = function() {
             if ($state.current.name != "index") {
-            $scope.menu = !$scope.menu;
+                $scope.menu = !$scope.menu;
             }
         }
+
 
         $scope.show = function(i) {
             $("#btn_" + i).show();
@@ -34,21 +31,51 @@ angular.module('EleventApp')
             $("#btn_" + i).hide();
         };
 
-        $scope.go = function(state) {
-            $state.go(state);
+        $scope.go = function(state, _id) {
+            $state.go(state, { id: _id });
         }
+        $scope.logout = function() {
+                AuthService.logout();
+            }
+            /*$http.get("scripts/event.json").then(function(response) {
+                $scope.myData = response.data.events;
+            });*/
+            //$scope.myData = [];
+            /*   
+             */
+        $rootScope.$watch(function() {
+            return $rootScope.currentUser;
+        }, function(n, o) {
+            // console.log("new value ", n);
+            // console.log("old value ", o);
+            if (n != null) {
+                Event.find({ "where": { "eventManagerId": $rootScope.currentUser.id } }, function(success) {
+                    $scope.myData = success;
+                    $scope.myData.forEach(function(obj) {
+                        obj.progress = 0;
+                        Event.tasks({ id: obj.id }, function(success) {
+                            var total = success.length;
+                            var done = 0;
+                            if (total > 0) {
+                                success.forEach(function(task) {
+                                    if (task.isDone == true) {
+                                        done++;
+                                    }
+                                }, this);
+                                obj.progress = Math.floor((done / total) * 100);
+                            }
 
-        $http.get("scripts/user.json").then(function(response) {
+                            //console.log(obj.progress);
+                        }, function(err) {
+                            console.log(err);
+                        })
+                    }, this);
 
-            $rootScope.User.id = response.data.user[0].id;
-            $rootScope.User.name = response.data.user[0].name;
-            $rootScope.User.img = response.data.user[0].img;
-            $rootScope.User.email = response.data.user[0].email;
-        });
 
-        $http.get("scripts/event.json").then(function(response) {
-            $scope.myData = response.data.events;
-        });
-
+                }, function(err) {
+                    console.log(err);
+                })
+            }
+        })
 
     });

@@ -26,16 +26,17 @@
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
     <!-- build:css(.tmp) styles/main.css -->
     <!-- <link rel="stylesheet" href="styles/main.css"> -->
-    <!-- endbuild -->
+
+    <link rel="stylesheet" href="./bower_components/adm-dtp/dist/ADM-dateTimePicker.css" <!-- endbuild -->
 </head>
 <style type="text/css">
-body {
-    position: relative;
-    font-family: 'Montserrat';
-}
+    body {
+        position: relative;
+        font-family: 'Montserrat';
+    }
 </style>
 
-<body ng-app="EleventApp" ng-controller="MainCtrl">
+<body ng-app="EleventApp">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -44,7 +45,7 @@ body {
       <script src="bower_components/json3/lib/json3.min.js"></script>
     <![endif]-->
     <!-- Add your site or application content here -->
-    <nav class="navbar navbar-default navbar-inverse" ng-controller="MainCtrl">
+    <nav class="navbar navbar-default navbar-inverse" ng-controller="MainCtrl" ng-hide="login">
         <div class="container-fluid">
             <div class="navbar-header">
                 <!-- <a ng-controller="MainCtrl" class="navbar-brand" style=" display:inline-block; color: #fff; font-size: 40px; margin-top: 10px;" href="#">
@@ -64,11 +65,12 @@ body {
                         <a href="#"><i class="fa fa-cog fa-2x" style="color: #fff;"></i> </a>
                     </li>
                 </ul>
-                <li><a style="color: #fff; font-size: 20px;" href>{{User.name}} <img src="{{User.img}}" alt="{{User.name}}" class="img-circle" width="40" height="40" /> </a></li>
+                <li><a style="color: #fff; font-size: 20px;" href>{{currentUser.name}}<img style="margin-left: 10px" ng-src="{{currentUser.image}}" alt="{{currentUser.name}}" class="img-circle" width="40" height="40" /> </a></li>
+                <li ng-show="currentUser"><a href style="margin-top: 8px" ng-click="logout()">Logout</a></li>
             </ul>
         </div>
     </nav>
-    <div id="sideBar" class="pull-left">
+    <div ng-hide="login" id="sideBar" class="pull-left">
         <ul>
             <li>
                 <a href><i class="fa fa-th-large fa-4x" id="hidden-menu-btn" ng-click="showMenu()"></i> </a>
@@ -137,24 +139,25 @@ body {
     </div>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script>
-    (function(i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r;
-        i[r] = i[r] || function() {
-            (i[r].q = i[r].q || []).push(arguments)
-        }, i[r].l = 1 * new Date();
-        a = s.createElement(o),
-            m = s.getElementsByTagName(o)[0];
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-    ga('create', 'UA-XXXXX-X');
-    ga('send', 'pageview');
+        ga('create', 'UA-XXXXX-X');
+        ga('send', 'pageview');
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <!-- build:js scripts/modules.js -->
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
@@ -162,9 +165,16 @@ body {
     <script src="bower_components/angularjs-datepicker/src/js/angular-datepicker.js"></script>
     <script src="bower_components/ng-file-upload/ng-file-upload.min.js"></script>
     <script src="bower_components/angular-svg-round-progressbar/build/roundProgress.js"></script>
+    <script src="bower_components/adm-dtp/dist/ADM-dateTimePicker.js"></script>
+    <script src="bower_components/angular-bootstrap-multiselect/dist/angular-bootstrap-multiselect.min.js"></script>
+    <script src="bower_components/ng-file-upload-shim/ng-file-upload-shim.js"></script>
+    <script src="bower_components/ng-file-upload-shim/ng-file-upload.js"></script>
+    <script src="scripts/multiselect.js"></script>
     <!-- endbuild -->
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
+    <script src="scripts/services/LoopBack.js"></script>
+    <script src="scripts/services/AuthService.js"></script>
     <script src="scripts/controllers/main.js"></script>
     <script src="scripts/controllers\main.js"></script>
     <script src="scripts/controllers/dashboard.js"></script>
@@ -185,6 +195,8 @@ body {
     <script src="scripts/controllers\vendor.js"></script>
     <script src="scripts/controllers/collaborate.js"></script>
     <script src="scripts/controllers\collaborate.js"></script>
+
+    <script src="scripts/controllers\editTimeline.js"></script>
     <!-- endbuild -->
 </body>
 

@@ -16,7 +16,7 @@
             <article class="timeline-entry" ng-class-even="'left-aligned'" ng-class-odd="''" ng-repeat="x in myData" id="card_{{x.id}}">
                 <div>
                     <div class="timeline-entry-inner">
-                        <time class="timeline-time" datetime="2014-01-10T03:45"><span>{{x.time}}</span> <span>Today</span></time>
+                        <time class="timeline-time" datetime="2014-01-10T03:45"><span>{{x.date}}</span> <span>Today</span></time>
                         <div class="timeline-icon">
                             <i class="entypo-feather"></i>
                         </div>
@@ -26,11 +26,11 @@
                                 <i style="margin-right: -15px; margin-top: -15px;" class="fa fa-ellipsis-v fa-1x pull-right dropdown-toggle" data-toggle="dropdown" type="button"></i>
                                 <!-- </a> -->
                                 <ul class="dropdown-menu pull-right" style="margin-right: -12px;">
-                                    <li><a href>Edit</a></li>
+                                    <li><a href ng-click="editTask(x.id)">Edit</a></li>
                                     <li><a href data-toggle="modal" data-target="#myModal{{x.id}}">Delete</a></li>
                                 </ul>
                             </div>
-                            <h2><input type="checkbox" ng-checked="{{x.done}}"> {{x.title}}</h2>
+                            <h2><input type="checkbox" ng-model="x.isDone" ng-change="toggleDone(x.id)"> {{x.title}}</h2>
                             <p>{{x.description}}.</p>
                         </div>
                     </div>
