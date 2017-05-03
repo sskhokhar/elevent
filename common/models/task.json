@@ -31,8 +31,11 @@
             "foreignKey": ""
         }
     },
-    "acls": [
-
-    ],
+    "acls": [{
+        "accessType": "*",
+        "principalType": "ROLE",
+        "principalId": "superUser",
+        "permission": "ALLOW"
+    }],
     "methods": {}
 }
