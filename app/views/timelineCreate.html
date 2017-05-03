@@ -1,25 +1,18 @@
 <style type="text/css">
-    ul {
-        list-style: none;
-    }
-    
-    input[type="text"] {
-        background: transparent;
-        color: white;
-        border: solid 2px;
-    }
-    
-    .custom {
-        background: transparent;
-        border: solid 2px #2e6da4;
-        width: 100%;
-    }
-    
-    .custom:hover {
-        background: transparent;
-        border: solid 2px #2e6da4;
-        width: 100%;
-    }
+ul {
+    list-style: none;
+}
+input[type="text"] {
+    background: transparent;
+    color: white;
+    border: solid 2px;
+}
+.custom{
+    background: transparent; border: solid 2px #2e6da4; width: 100%;
+}
+.custom:hover{
+    background: transparent; border: solid 2px #2e6da4; width: 100%;
+}
 </style>
 <div class="row" style="margin-top: -60px;">
     <div class="col-lg-7 col-md-9 col-sm-9 col-xs-9 entery-cards shadow">
@@ -31,23 +24,22 @@
                             <label for="email">Task Date:</label>
                         </div>
                         <div class="col-lg-8 col-md-8 col-sm-12" style="margin-top: 20px;">
-                            <!--   <datepicker date-format="yyyy-MM-dd" selector="form-control">
+                            <datepicker date-format="yyyy-MM-dd" selector="form-control">
                                 <div class="input-group">
                                     <input class="form-control" placeholder="Choose a date and time" />
                                     <span class="input-group-addon" style="cursor: pointer">
                                 <i class="fa fa-lg fa-calendar"></i>
                                 </span>
                                 </div>
-                            </datepicker> -->
-                            <adm-dtp ng-model='task.date' options='{calType: "gregorian",default: "today"}'></adm-dtp>
+                            </datepicker>
                         </div>
                     </li>
                     <li>
                         <div class="col-lg-4 col-md-3 col-sm-6" style="margin-top: 20px;">
-                            <label for="task">Task Title:</label>
+                            <label for="task">Task:</label>
                         </div>
                         <div class="col-lg-8 col-md-8 col-sm-12" style="margin-top: 20px;">
-                            <input type="text" class="form-control" id="task" ng-model="task.title">
+                            <input type="text" class="form-control" id="task">
                         </div>
                     </li>
                     <li>
@@ -55,7 +47,7 @@
                             <label for="description">Description:</label>
                         </div>
                         <div class="col-lg-8 col-md-8 col-sm-12" style="margin-top: 20px;">
-                            <textarea ng-model="task.description" type="text" class="form-control" id="description" style="background: transparent!important;color:white;border: 2px solid white;" rows="10"></textarea>
+                            <input type="text" class="form-control" id="description">
                         </div>
                     </li>
                     <li>
@@ -63,7 +55,7 @@
                             <label for="vendor">Vendor:</label>
                         </div>
                         <div class="col-lg-8 col-md-8 col-sm-12" style="margin-top: 20px;">
-                            <multiselect class="input-xlarge" multiple="true" ng-model="selectedVendors" options="c.companyName for c in vendors" change="selected()"></multiselect>
+                            <input type="text" class="form-control" id="vendor">
                         </div>
                     </li>
                     <li>
@@ -71,11 +63,11 @@
                             <label for="location">Location:</label>
                         </div>
                         <div class="col-lg-8 col-md-8 col-sm-12" style="margin-top: 20px;">
-                            <input type="text" ng-model="task.location" class="form-control" id="location">
+                            <input type="text" class="form-control" id="location">
                         </div>
                     </li>
                     <li class="text-center">
-                        <button ng-disabled="selectedVendors.length<1" type="submit" style=" margin-top: 20px; margin-right: 15px; background-color: transparent; border: solid 2px #2e6da4; width: 100%;" class="btn btn-primary" ng-click="addTask()">Add to Timeline</button>
+                        <button type="submit" style=" margin-top: 20px; margin-right: 15px; background-color: transparent; border: solid 2px #2e6da4; width: 100%;" class="btn btn-primary">Add to Timeline</button>
                     </li>
                 </ul>
             </form>

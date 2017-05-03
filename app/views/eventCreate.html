@@ -1,38 +1,41 @@
 <style type="text/css">
-    ul {
-        list-style: none;
-    }
-    
-    input[type="text"] {
-        background: transparent;
-        color: white;
-        border: solid 2px;
-    }
-    
-    input[type="file"] {
-        background: transparent;
-        color: white;
-    }
-    
-    option {
-        color: black;
-    }
+ul {
+    list-style: none;
+}
+
+input[type="text"] {
+    background: transparent;
+    color: white;
+    border: solid 2px;
+}
+
+input[type="file"] {
+    background: transparent;
+    color: white;
+}
+
+option {
+    color: black;
+}
+
 </style>
 <div class="row" style="margin-top: -60px;">
     <div class="col-lg-7 col-md-9 col-sm-9 col-xs-9 entery-cards shadow">
         <div class="entery-extras">
-            <form ng-submit="createEvent()">
+            <form>
                 <ul>
                     <li>
                         <div class="col-lg-4 col-md-3 col-sm-6" style="margin-top: 10px;">
                             <label for="type">Project Type:</label>
                         </div>
                         <div class="col-lg-8 col-md-8 col-sm-12" style="margin-top: 10px;">
-                            <select ng-model="event.type" class="form-control" name="projects" style="background-color: transparent; border: solid 2px white; color: white">
+                            <select class="form-control" name="projects" style="background-color: transparent; border: solid 2px white; color: white">
                                 <option value="">Select</option>
-                                <option value="Birthday">Birthday</option>
-                                <option value="Wedding">Wedding</option>
-                                <option value="Corporate-Event">Corporate Event</option>
+                                <option value="black">Black</option>
+                                <option value="green">Green</option>
+                                <option value="red">Red</option>
+                                <option value="yellow">Yellow</option>
+                                <option value="white">White</option>
                             </select>
                         </div>
                     </li>
@@ -41,7 +44,7 @@
                             <label for="projectName">Project Name:</label>
                         </div>
                         <div class="col-lg-8 col-md-8 col-sm-12" style="margin-top: 20px;">
-                            <input type="text" ng-model="event.title" class="form-control" id="projectName">
+                            <input type="text" class="form-control" id="projectName">
                         </div>
                     </li>
                     <li>
@@ -49,7 +52,14 @@
                             <label for="email">Project Date:</label>
                         </div>
                         <div class="col-lg-8 col-md-8 col-sm-12" style="margin-top: 20px;">
-                            <adm-dtp ng-model='event.date' options='{calType: "gregorian",default: "today"}'></adm-dtp>
+                            <datepicker date-format="yyyy-MM-dd" selector="form-control">
+                                <div class="input-group">
+                                    <input class="form-control" style="background: transparent; border:solid 2px white; color: white;" placeholder="" />
+                                    <span class="input-group-addon" style="cursor: pointer">
+        						<i class="fa fa-lg fa-calendar" ></i>
+        						</span>
+                                </div>
+                            </datepicker>
                         </div>
                     </li>
                     <li>
@@ -57,7 +67,7 @@
                             <label for="guestCount">Guests Count:</label>
                         </div>
                         <div class="col-lg-8 col-md-8 col-sm-12" style="margin-top: 20px;">
-                            <input type="text" ng-model="event.guests" class="form-control" id="guestCount">
+                            <input type="text" class="form-control" id="guestCount">
                         </div>
                     </li>
                     <li>
@@ -65,7 +75,7 @@
                             <label for="eventVenue">Event Venue:</label>
                         </div>
                         <div class="col-lg-8 col-md-8 col-sm-12" style="margin-top: 20px;">
-                            <input type="text" ng-model="event.venue" class="form-control" id="eventVenue">
+                            <input type="text" class="form-control" id="eventVenue">
                         </div>
                     </li>
                     <li>
@@ -74,7 +84,7 @@
                         </div>
                         <div class="col-lg-8 col-md-8 col-sm-12" style="margin-top: 20px;">
                             <!-- <button class="btn btn-primary">Select Image</button> -->
-                            <input ngf-select ng-model="file" name="file" ngf-pattern="'image/*'" ngf-accept="'image/*'" ngf-max-size="10MB" type="file" style="border: 0px;" class="form-control" id="file">
+                            <input type="file" style="border: 0px;" class="form-control" id="file">
                         </div>
                     </li>
                     <li class="text-center">

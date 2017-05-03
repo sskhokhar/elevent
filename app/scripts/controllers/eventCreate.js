@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('EleventApp')
-    .controller('EventCreateCtrl', function($state, $scope, $rootScope, Upload, Attachment, Eventmanager, Event) {
+    .controller('EventCreateCtrl', ['$state', '$scope', '$rootScope', 'Upload', function($state, $scope, $rootScope, Upload) {
         $scope.x = true;
         $rootScope.title = "Create Event";
 
@@ -9,52 +9,35 @@ angular.module('EleventApp')
             $state.go(state);
         }
 
-        $scope.event = {
-            title: '',
-            type: '',
-            date: '',
-            guests: 0,
-            venue: '',
-            image: ''
+        // upload later on form submit or something similar
+        $scope.submit = function() {
+            if ($scope.form.file.$valid && $scope.file) {
+                $scope.upload($scope.file);
+            }
+        };
+
+        //upload on file select or drop
+        $scope.upload = function(file) {
+            Upload.upload({
+                url: 'upload/url',
+                data: { file: file, 'username': $scope.username }
+            }).then(function(resp) {
+                console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
+            }, function(resp) {
+                console.log('Error status: ' + resp.status);
+            }, function(evt) {
+                var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+                console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
+            });
+        };
+        // for multiple files:
+        $scope.uploadFiles = function(files) {
+            if (files && files.length) {
+                for (var i = 0; i < files.length; i++) {
+                    // Upload.upload({..., data: {file: files[i]}, ...})...;
+                }
+                // or send them all together for HTML5 browsers:
+                // Upload.upload({..., data: {file: files}, ...})...;
+            }
         }
-        $scope.file = null;
-
-        $scope.createEvent = function() {
-            $scope.event.eventManagerId = $rootScope.currentUser.id
-            Eventmanager.events.create({ id: $rootScope.currentUser.id }, $scope.event, function(success) {
-                Attachment.createContainer({ name: success.id }, function(ctr) {
-                    Upload.upload({
-                        url: $rootScope.apiBaseUrl + '/Attachments/' + ctr.name + "/" + 'upload',
-                        data: { file: $scope.file }
-                    }).then(function(resp) {
-                        Event.prototype$patchAttributes({ id: success.id }, { image: $rootScope.apiBaseUrl + '/Attachments/' + ctr.name + '/download/' + resp.config.data.file.name }, function(updated) {
-                            $scope.event = {
-                                title: '',
-                                type: '',
-                                date: '',
-                                guests: 0,
-                                venue: '',
-                                image: ''
-                            }
-                            $scope.file = null;
-                            console.log(updated);
-                        }, function(err) {
-                            console.log(err);
-                        })
-                        console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
-                    }, function(resp) {
-                        console.log('Error status: ' + resp.status);
-                    }, function(evt) {
-                        var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-                        console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
-                    });
-                }, function(err) {
-                    console.log(err);
-                })
-            }, function(err) {
-                console.log(err);
-            })
-        }
-
-
-    });
+    }]);
