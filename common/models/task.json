@@ -1,41 +1,43 @@
 {
-    "name": "Task",
-    "base": "PersistedModel",
-    "idInjection": true,
-    "options": {
-        "validateUpsert": true
+  "name": "Task",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "title": {
+      "type": "string"
     },
-    "properties": {
-        "title": {
-            "type": "string"
-        },
-        "date": {
-            "type": "date"
-        },
-        "description": {
-            "type": "string"
-        },
-        "location": {
-            "type": "string"
-        },
-        "isDone": {
-            "type": "boolean",
-            "default": false
-        }
+    "date": {
+      "type": "date"
     },
-    "validations": [],
-    "relations": {
-        "event": {
-            "type": "belongsTo",
-            "model": "Event",
-            "foreignKey": ""
-        }
+    "description": {
+      "type": "string"
     },
-    "acls": [{
-        "accessType": "*",
-        "principalType": "ROLE",
-        "principalId": "superUser",
-        "permission": "ALLOW"
-    }],
-    "methods": {}
+    "location": {
+      "type": "string"
+    },
+    "isDone": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "validations": [],
+  "relations": {
+    "event": {
+      "type": "belongsTo",
+      "model": "Event",
+      "foreignKey": ""
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "superUser",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
 }

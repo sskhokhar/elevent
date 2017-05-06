@@ -1,52 +1,54 @@
 {
-    "name": "Vendor",
-    "base": "PersistedModel",
-    "idInjection": true,
-    "options": {
-        "validateUpsert": true
+  "name": "Vendor",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "companyName": {
+      "type": "string"
     },
-    "properties": {
-        "companyName": {
-            "type": "string"
-        },
-        "name_1": {
-            "type": "string"
-        },
-        "name_2": {
-            "type": "string"
-        },
-        "address": {
-            "type": "string"
-        },
-        "phone": {
-            "type": "string"
-        },
-        "email": {
-            "type": "string"
-        },
-        "website": {
-            "type": "string"
-        },
-        "image": {
-            "type": "string"
-        },
-        "pointOfContact": {
-            "type": "object"
-        }
+    "name_1": {
+      "type": "string"
     },
-    "validations": [],
-    "relations": {
-        "event": {
-            "type": "belongsTo",
-            "model": "Event",
-            "foreignKey": ""
-        }
+    "name_2": {
+      "type": "string"
     },
-    "acls": [{
-        "accessType": "*",
-        "principalType": "ROLE",
-        "principalId": "superUser",
-        "permission": "ALLOW"
-    }],
-    "methods": {}
+    "address": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "website": {
+      "type": "string"
+    },
+    "image": {
+      "type": "string"
+    },
+    "pointOfContact": {
+      "type": "object"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "event": {
+      "type": "belongsTo",
+      "model": "Event",
+      "foreignKey": ""
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "superUser",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
 }
