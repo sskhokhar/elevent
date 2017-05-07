@@ -18,5 +18,24 @@
     "connector": "loopback-component-storage",
     "provider": "filesystem",
     "root": "./attachments"
+  },
+  "EmailDatasource": {
+    "name": "EmailDatasource",
+    "connector": "mail",
+    "transports": [
+      {
+        "type": "smtp",
+        "host": "server189.web-hosting.com",
+        "secure": true,
+        "port": 465,
+        "tls": {
+          "rejectUnauthorized": false
+        },
+        "auth": {
+          "user": "test@esperance.org.pk",
+          "pass": "Pakistan12!"
+        }
+      }
+    ]
   }
 }

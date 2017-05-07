@@ -62,5 +62,24 @@
         "principalId": "superUser",
         "permission": "ALLOW"
     }],
-    "methods": {}
+    "methods": {
+        "prototype.invite": {
+            "accepts": [{
+                "arg": "details",
+                "type": "object",
+                "required": true,
+                "description": "",
+                "http": {
+                    "source": "body"
+                }
+            }],
+            "returns": [{
+                "arg": "response",
+                "type": "object",
+                "root": true,
+                "description": ""
+            }],
+            "description": "Sends email to collaborate"
+        }
+    }
 }

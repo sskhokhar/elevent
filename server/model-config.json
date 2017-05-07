@@ -55,5 +55,9 @@
   "Attachment": {
     "dataSource": "FileStorage",
     "public": true
+  },
+  "email": {
+    "dataSource": "EmailDatasource",
+    "public": true
   }
 }
