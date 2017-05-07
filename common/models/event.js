@@ -11,7 +11,7 @@ module.exports = function(Event) {
             text: 'my text',
             html: 'my <em>html</em>'
         }, function(err, mail) {
-            console.log('email sent!');
+            console.log(err);
             callback(err);
         });
         //callback(null, response);
