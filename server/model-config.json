@@ -59,5 +59,9 @@
   "email": {
     "dataSource": "EmailDatasource",
     "public": true
+  },
+  "Collaborator": {
+    "dataSource": "mongoDb",
+    "public": true
   }
 }
