@@ -43,6 +43,13 @@
       "principalType": "ROLE",
       "principalId": "superUser",
       "permission": "ALLOW"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "__create__events"
     }
   ],
   "methods": {}
