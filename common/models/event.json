@@ -1,91 +1,86 @@
 {
-  "name": "Event",
-  "base": "PersistedModel",
-  "idInjection": true,
-  "options": {
-    "validateUpsert": true
-  },
-  "properties": {
-    "title": {
-      "type": "string"
+    "name": "Event",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "options": {
+        "validateUpsert": true
     },
-    "date": {
-      "type": "date"
-    },
-    "guests": {
-      "type": "number"
-    },
-    "venue": {
-      "type": "string"
-    },
-    "image": {
-      "type": "string"
-    },
-    "type": {
-      "type": "string"
-    },
-    "collaboratorIds": {
-      "type": [
-        "string"
-      ]
-    }
-  },
-  "validations": [],
-  "relations": {
-    "eventManagerId": {
-      "type": "belongsTo",
-      "model": "Eventmanager",
-      "foreignKey": "eventManagerId"
-    },
-    "tasks": {
-      "type": "referencesMany",
-      "model": "Task",
-      "foreignKey": "taskIds",
-      "options": {
-        "validate": true,
-        "forceId": false
-      }
-    },
-    "vendor": {
-      "type": "referencesMany",
-      "model": "Vendor",
-      "foreignKey": "vendorIds",
-      "options": {
-        "validate": true,
-        "forceId": false
-      }
-    }
-  },
-  "acls": [
-    {
-      "accessType": "*",
-      "principalType": "ROLE",
-      "principalId": "superUser",
-      "permission": "ALLOW"
-    }
-  ],
-  "methods": {
-    "prototype.invite": {
-      "accepts": [
-        {
-          "arg": "details",
-          "type": "object",
-          "required": true,
-          "description": "",
-          "http": {
-            "source": "body"
-          }
+    "properties": {
+        "title": {
+            "type": "string"
+        },
+        "date": {
+            "type": "date"
+        },
+        "guests": {
+            "type": "number"
+        },
+        "venue": {
+            "type": "string"
+        },
+        "image": {
+            "type": "string"
+        },
+        "type": {
+            "type": "string"
+        },
+        "collaboratorIds": {
+            "type": [
+                "string"
+            ],
+            "default": []
         }
-      ],
-      "returns": [
-        {
-          "arg": "response",
-          "type": "object",
-          "root": true,
-          "description": ""
+    },
+    "validations": [],
+    "relations": {
+        "eventManagerId": {
+            "type": "belongsTo",
+            "model": "Eventmanager",
+            "foreignKey": "eventManagerId"
+        },
+        "tasks": {
+            "type": "referencesMany",
+            "model": "Task",
+            "foreignKey": "taskIds",
+            "options": {
+                "validate": true,
+                "forceId": false
+            }
+        },
+        "vendor": {
+            "type": "referencesMany",
+            "model": "Vendor",
+            "foreignKey": "vendorIds",
+            "options": {
+                "validate": true,
+                "forceId": false
+            }
         }
-      ],
-      "description": "Sends email to collaborate"
+    },
+    "acls": [{
+        "accessType": "*",
+        "principalType": "ROLE",
+        "principalId": "superUser",
+        "permission": "ALLOW"
+    }],
+    "methods": {
+        "prototype.invite": {
+            "accepts": [{
+                "arg": "details",
+                "type": "object",
+                "required": true,
+                "description": "",
+                "http": {
+                    "source": "body"
+                }
+            }],
+            "returns": [{
+                "arg": "response",
+                "type": "object",
+                "root": true,
+                "description": ""
+            }],
+            "description": "Sends email to collaborate"
+        }
     }
-  }
 }
