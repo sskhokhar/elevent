@@ -19,7 +19,7 @@
             "required": true
         },
         "eId": {
-            "type": "number",
+            "type": "string",
             "required": true
         }
     },
