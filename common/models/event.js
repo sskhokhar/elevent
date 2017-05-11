@@ -5,7 +5,7 @@ module.exports = function(Event) {
         var response;
         console.log(details);
         var name = details.name;
-        var eventName = details.eventName;
+        var eventName = this.title;
         var token = details.token;
         Event.app.models.email.send({
             to: 'shah.khokhar@hotmail.com',
