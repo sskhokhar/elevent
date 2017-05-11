@@ -20,7 +20,7 @@ module.exports = function(Event) {
             `
         }, function(err, mail) {
             if (!err) {
-                callback(null, mail);
+                callback(null, mail)
             } else {
                 callback(err, null);
             }
