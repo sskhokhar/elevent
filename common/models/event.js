@@ -6,7 +6,7 @@ module.exports = function(Event) {
         console.log(details);
         Event.app.models.email.send({
             to: 'shah.khokhar@hotmail.com',
-            from: 'you@gmail.com',
+            from: 'bilalaftabmalik@gmail.com',
             subject: 'my subject',
             text: 'my text',
             html: 'my <em>html</em>'

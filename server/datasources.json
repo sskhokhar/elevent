@@ -24,11 +24,11 @@
         "connector": "mail",
         "transports": [{
             "type": "smtp",
-            "host": "ses-smtp-user.20170511-161645",
+            "host": "email-smtp.us-east-1.amazonaws.com",
             "secure": true,
             "port": 465,
             "tls": {
-                "rejectUnauthorized": false
+                "rejectUnauthorized": true
             },
             "auth": {
                 "user": "AKIAI3JNIQTU6WGAMVUA",
