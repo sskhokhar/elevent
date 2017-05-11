@@ -18,8 +18,11 @@ module.exports = function(Event) {
             Thanks,
             `
         }, function(err, mail) {
-            console.log(err);
-            callback(err);
+            if (!err) {
+                callback(null, mail);
+            } else {
+                callback(err, null);
+            }
         });
         //callback(null, response);
     };
