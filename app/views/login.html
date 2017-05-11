@@ -17,9 +17,11 @@
                 </div>
                 <div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="#" style="color: white;">Forgot password?</a></div>
                 <div style="margin-top:10px" class="form-group">
-
+                    <div class="login-err col-sm-12 col-md-12 col-lg-12" style="margin-bottom: 5px;
+    /* text-decoration: underline; */
+    color: white;">{{err}}</div>
                     <div class="col-sm-12 col-md-12 col-lg-12 controls">
-                        <button type="submit" id="btn-login" style="width: 100%; " class="btn btn-success" ng-click="login()">Login  </button>
+                        <button ng-disabled="isLogin" type="submit" v-busy="isLogin" v-busy-label="Please wait" v-pressable id="btn-login" style="width: 100%; " class="btn btn-success Button" ng-click="login()">Login</button>
                     </div>
                 </div>
                 <div style="margin-top:10px" class="form-group">

@@ -31,9 +31,13 @@
                     <!-- <input id="login-website" style="border: 0px;" type="text" class="form-control" name="website" value="" placeholder="Website"> -->
                     <input ngf-select ng-model="file" name="file" ngf-pattern="'image/*'" ngf-accept="'image/*'" ngf-max-size="10MB" type="file" style="border: 0px;" class="form-control" id="file">
                 </div>
+
                 <div style="margin-top:10px" class="form-group">
+                    <div class="login-err col-sm-12 col-md-12 col-lg-12" style="margin-bottom: 5px;
+    /* text-decoration: underline; */
+    color: white;">{{err}}</div>
                     <div class="col-sm-12 col-md-12 col-lg-12 controls">
-                        <a id="btn-login" style="width: 100%; background: purple; border: 0px;" href class="btn btn-success" ng-click="signup()">Signup  </a>
+                        <button ng-disabled="isSigning" type="submit" v-busy="isSigning" v-busy-label="Please wait" v-pressable class="btn btn-success Button" style="width: 100%; background: purple; border: 0px;" ng-click="signup()">Signup</button>
                     </div>
                 </div>
             </form>

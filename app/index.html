@@ -26,8 +26,10 @@
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
     <!-- build:css(.tmp) styles/main.css -->
     <!-- <link rel="stylesheet" href="styles/main.css"> -->
-
-    <link rel="stylesheet" href="./bower_components/adm-dtp/dist/ADM-dateTimePicker.css" <!-- endbuild -->
+    <link rel="stylesheet" href="./bower_components/v-button/dist/v-button.css">
+    <link rel="stylesheet" href="./bower_components/adm-dtp/dist/ADM-dateTimePicker.css">
+    <link rel="stylesheet" href="./bower_components/ngToast/dist/ngToast.css">
+    <!-- endbuild -->
 </head>
 <style type="text/css">
     body {
@@ -36,7 +38,7 @@
     }
 </style>
 
-<body ng-app="EleventApp">
+<body ng-app="EleventApp" ng-cloak>
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -45,7 +47,7 @@
       <script src="bower_components/json3/lib/json3.min.js"></script>
     <![endif]-->
     <!-- Add your site or application content here -->
-    <nav class="navbar navbar-default navbar-inverse" ng-controller="MainCtrl" ng-hide="login">
+    <nav style="display: none" class="navbar navbar-default navbar-inverse e-nav" ng-controller="MainCtrl">
         <div class="container-fluid">
             <div class="navbar-header">
                 <!-- <a ng-controller="MainCtrl" class="navbar-brand" style=" display:inline-block; color: #fff; font-size: 40px; margin-top: 10px;" href="#">
@@ -70,7 +72,7 @@
             </ul>
         </div>
     </nav>
-    <div ng-hide="login" id="sideBar" class="pull-left">
+    <div style="display: none" id="sideBar" class="pull-left e-nav">
         <ul>
             <li>
                 <a href><i class="fa fa-th-large fa-4x" id="hidden-menu-btn" ng-click="showMenu()"></i> </a>
@@ -135,7 +137,9 @@
             </div> -->
         </div>
     </div>
+    <toast></toast>
     <div ng-controller="MainCtrl" ui-view="" class="main-content" style="background-image: url({{bg}});">
+
     </div>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script>
@@ -160,6 +164,7 @@
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/angularjs-datepicker/src/js/angular-datepicker.js"></script>
@@ -170,6 +175,9 @@
     <script src="bower_components/ng-file-upload-shim/ng-file-upload-shim.js"></script>
     <script src="bower_components/ng-file-upload-shim/ng-file-upload.js"></script>
     <script src="scripts/multiselect.js"></script>
+    <script src="bower_components/v-button/dist/v-button.js"></script>
+    <script src="bower_components/angular-spinner/dist/angular-spinner.min.js"></script>
+    <script src="bower_components/ngToast/dist/ngToast.js"></script>
     <!-- endbuild -->
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>

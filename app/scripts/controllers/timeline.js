@@ -5,7 +5,7 @@ angular.module('EleventApp')
         var _eventId = $stateParams.id;
         $rootScope.title = "Event Timeline";
         $scope.myData;
-
+        $rootScope.bg = "../images/card-bg2.jpg";
         $scope.delCard = function(i) {
             Event.tasks.destroyById({ id: _eventId }, { fk: i }, function(success) {
                     console.log(success);
@@ -21,7 +21,7 @@ angular.module('EleventApp')
         /*$http.get("scripts/dashboard.json").then(function(response) {
             $scope.myData = response.data.timeline;
         });*/
-        Task.find({ where: { eventId: _eventId } }, function(success) {
+        Task.find({ filter: { where: { eventId: _eventId } } }, function(success) {
             //console.log(success);
             var tasks = parseDateTime(success);
             $scope.myData = tasks;

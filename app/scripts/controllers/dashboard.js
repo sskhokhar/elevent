@@ -2,8 +2,8 @@
 
 angular.module('EleventApp')
     .controller('DashboardCtrl', function($state, $scope, $rootScope, $http, $stateParams, Task, Event) {
+        $('.e-nav').show();
         var _eventId = $stateParams.id;
-
         $scope.eventId = _eventId;
         $scope.x = true;
         $rootScope.title = "Event Dashboard";

@@ -12,7 +12,10 @@ angular.module('EleventApp', [
     'LoopBack',
     'ADM-dateTimePicker',
     'ui.multiselect',
-    'ngFileUpload'
+    'ngFileUpload',
+    'vButton',
+    'angularSpinner',
+    'ngToast'
 ])
 
 .config(function($stateProvider, $urlRouterProvider, LoopBackResourceProvider, $httpProvider) {
@@ -29,7 +32,7 @@ angular.module('EleventApp', [
     $urlRouterProvider.otherwise('/');
     $stateProvider
         .state('index', {
-            url: '/',
+            url: '/main',
             templateUrl: 'views/main.html',
             controller: 'MainCtrl',
             authenticate: true
@@ -75,13 +78,13 @@ angular.module('EleventApp', [
     })
 
     .state('login', {
-        url: '/login',
+        url: '/?token',
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl'
     })
 
     .state('signup', {
-        url: '/signup',
+        url: '/signup?token',
         templateUrl: 'views/signup.html',
         controller: 'SignupCtrl'
     })
@@ -94,7 +97,7 @@ angular.module('EleventApp', [
     })
 
     .state('collaborate', {
-        url: '/collaborate',
+        url: '/collaborate/:id',
         templateUrl: 'views/collaborate.html',
         controller: 'CollaborateCtrl',
         authenticate: true
@@ -122,6 +125,10 @@ angular.module('EleventApp', [
             };
 
             $state.go('login');
+        }
+        if ((toState.name == "login" || toState.name == "signup") && LoopBackAuth.accessTokenId) {
+            event.preventDefault();
+            $state.go('index');
         }
     });
 

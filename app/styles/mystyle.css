@@ -111,17 +111,13 @@ p {
 }
 
 .entery-cards {
-    margin: 10px 20px 20px 20px;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    color: white;
+    color: black;
     padding: 0px;
-    border: solid 2px white;
+    border: solid 1px #cfcfcf;
 }
 
 .entery-extras {
     /*background: white;*/
-    background-color: rgba(0, 0, 0, 0.33);
     padding: 10px;
     /*opacity: 0.7;*/
 }
@@ -321,4 +317,25 @@ multiselect .dropdown-menu {
 multiselect .dropdown-menu>li>a {
     padding: 3px 10px;
     cursor: pointer;
+}
+
+.ng-toast.ng-toast--top {
+    top: 55px!important;
+}
+
+[ng\:cloak],
+[ng-cloak],
+[data-ng-cloak],
+[x-ng-cloak],
+.ng-cloak,
+.x-ng-cloak {
+    display: none !important;
+}
+
+.ADMdtp-box footer .timeSelectIcon {
+    fill: red!important;
+}
+
+.ADMdtp-box footer .timeSelectIcon:hover {
+    fill: #fc5f2a!important;
 }

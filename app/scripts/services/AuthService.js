@@ -16,7 +16,6 @@ angular
                         id: response.user.id,
                         tokenId: response.id,
                         email: response.user.email,
-                        username: response.user.username,
                         image: response.user.profilePicture,
                         name: response.user.firstname + " " + response.user.lastname
                     };
@@ -33,6 +32,8 @@ angular
                 .then(function() {
 
                     $rootScope.currentUser = null;
+                    $rootScope.$broadcast('user-logged-out');
+                    $('.e-nav').hide();
                     $state.go("login");
                 });
         }
@@ -45,7 +46,8 @@ angular
                     "profilePicture": "",
                     "companyName": obj.companyName,
                     "email": obj.email,
-                    "password": obj.password
+                    "password": obj.password,
+                    "collaboratingIds": obj.collaboratingIds
                 })
                 .$promise;
         }
@@ -57,7 +59,7 @@ angular
                         id: userResource.id,
                         tokenId: userResource.id,
                         email: userResource.email,
-                        username: userResource.username,
+
                         image: userResource.profilePicture,
                         name: userResource.firstname + " " + userResource.lastname
 
