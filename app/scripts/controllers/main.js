@@ -2,7 +2,7 @@
 
 angular.module('EleventApp')
     .controller('MainCtrl', function($state, $scope, $rootScope, $http, AuthService, Event) {
-        $('.e-nav').show();
+
         $scope.Title = "Elevent";
         $rootScope.title = "Elevent";
         $rootScope.bg = "../images/plane.jpg";
