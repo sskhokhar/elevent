@@ -1,41 +1,39 @@
 {
-  "db": {
-    "name": "db",
-    "connector": "memory"
-  },
-  "mongoDb": {
-    "host": "localhost",
-    "port": 27017,
-    "url": "",
-    "database": "elevent",
-    "password": "",
-    "name": "mongoDb",
-    "user": "",
-    "connector": "mongodb"
-  },
-  "FileStorage": {
-    "name": "FileStorage",
-    "connector": "loopback-component-storage",
-    "provider": "filesystem",
-    "root": "./attachments"
-  },
-  "EmailDatasource": {
-    "name": "EmailDatasource",
-    "connector": "mail",
-    "transports": [
-      {
-        "type": "smtp",
-        "host": "server189.web-hosting.com",
-        "secure": true,
-        "port": 465,
-        "tls": {
-          "rejectUnauthorized": false
-        },
-        "auth": {
-          "user": "test@esperance.org.pk",
-          "pass": "Pakistan12!"
-        }
-      }
-    ]
-  }
+    "db": {
+        "name": "db",
+        "connector": "memory"
+    },
+    "mongoDb": {
+        "host": "localhost",
+        "port": 27017,
+        "url": "",
+        "database": "elevent",
+        "password": "",
+        "name": "mongoDb",
+        "user": "",
+        "connector": "mongodb"
+    },
+    "FileStorage": {
+        "name": "FileStorage",
+        "connector": "loopback-component-storage",
+        "provider": "filesystem",
+        "root": "./attachments"
+    },
+    "EmailDatasource": {
+        "name": "EmailDatasource",
+        "connector": "mail",
+        "transports": [{
+            "type": "smtp",
+            "host": "ses-smtp-user.20170511-161645",
+            "secure": true,
+            "port": 465,
+            "tls": {
+                "rejectUnauthorized": false
+            },
+            "auth": {
+                "user": "AKIAI3JNIQTU6WGAMVUA",
+                "pass": "AjWuucmgLj5qmDDRuyyU9GMacQFBSi/YWBpjZ64zOJNO"
+            }
+        }]
+    }
 }
