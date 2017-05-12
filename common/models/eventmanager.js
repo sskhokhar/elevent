@@ -3,8 +3,8 @@
 module.exports = function(Eventmanager) {
     //Eventmanager.settings.acls.length = 0;
     var app = require('../../server/server');
-    var Event = app.models.event;
-    console.log(app.models);
+    var Event = app.models.Event;
+    console.log(app.models.Event);
     Eventmanager.prototype.getCollaboratings = function(callback) {
         var events = [];
         var count = 0;
