@@ -39,10 +39,10 @@ angular.module('EleventApp')
                                 image: ''
                             }
                             $scope.file = null;
-                            $scope.isEventCreate = false
+                            $scope.isEventCreate = false;
                             ngToast.create({
                                 content: 'Event created successfuly',
-                                timeout: 2000,
+                                timeout: 1000,
                                 onDismiss: function() {
                                     $state.go('index');
                                 }

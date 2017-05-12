@@ -339,3 +339,10 @@ multiselect .dropdown-menu>li>a {
 .ADMdtp-box footer .timeSelectIcon:hover {
     fill: #fc5f2a!important;
 }
+
+.collab {
+    position: absolute;
+    background: black;
+    color: white;
+    padding: 10px;
+}

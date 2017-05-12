@@ -2,6 +2,7 @@
 
 angular.module('EleventApp')
     .controller('TimelineCtrl', function($scope, $rootScope, $http, $stateParams, Task, Event, $state) {
+        $('.e-nav').show();
         var _eventId = $stateParams.id;
         $rootScope.title = "Event Timeline";
         $scope.myData;

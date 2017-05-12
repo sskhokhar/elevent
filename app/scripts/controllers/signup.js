@@ -32,6 +32,7 @@ angular.module('EleventApp')
                         }).then(function(resp) {
                             console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
                             _profilePicture = $rootScope.apiBaseUrl + '/Attachments/' + ctr.name + '/download/' + resp.config.data.file.name;
+
                             AuthService.login($scope.user.email, $scope.user.password);
 
                         }, function(resp) {
@@ -64,6 +65,8 @@ angular.module('EleventApp')
                                 data: { file: $scope.file }
                             }).then(function(resp) {
                                 temp.push(_eventId);
+                                _profilePicture = $rootScope.apiBaseUrl + '/Attachments/' + ctr.name + '/download/' + resp.config.data.file.name;
+
                                 AuthService.login($scope.user.email, $scope.user.password);
                                 console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
                             }, function(resp) {
@@ -112,6 +115,8 @@ angular.module('EleventApp')
             Eventmanager.prototype$patchAttributes({ id: $rootScope.currentUser.id }, { profilePicture: _profilePicture, collaboratingIds: temp }, function(updated) {
                 console.log("user updated");
                 $rootScope.currentUser.profilePicture = updated.profilePicture;
+
+                //console.log($rootScope.currentUser.profilePicture);
                 $scope.user = {
                     firstname: "",
                     lastname: "",

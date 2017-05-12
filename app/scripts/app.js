@@ -90,7 +90,7 @@ angular.module('EleventApp', [
     })
 
     .state('vendor', {
-        url: '/vendor',
+        url: '/vendor/:id',
         templateUrl: 'views/vendor.html',
         controller: 'VendorCtrl',
         authenticate: true
@@ -104,6 +104,7 @@ angular.module('EleventApp', [
     })
 
 }).run(['$rootScope', '$state', 'LoopBackAuth', 'AuthService', function($rootScope, $state, LoopBackAuth, AuthService) {
+    $rootScope.menu = false;
     $rootScope.isEmpty = function(obj) {
         for (var i in obj) {
             if (obj.hasOwnProperty(i)) return false;

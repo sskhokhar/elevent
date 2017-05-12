@@ -1270,6 +1270,38 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "POST",
             },
 
+            /**
+             * @ngdoc method
+             * @name LoopBack.Eventmanager#prototype$getCollaboratings
+             * @methodOf LoopBack.Eventmanager
+             *
+             * @description
+             *
+             * Get collaborating instances.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Instances of events
+             */
+            "prototype$getCollaboratings": {
+              isArray: true,
+              url: urlBase + "/Eventmanagers/:id/getCollaboratings",
+              method: "GET",
+            },
+
             // INTERNAL. Use Event.eventManagerId() instead.
             "::get::Event::eventManagerId": {
               url: urlBase + "/Events/:id/eventManagerId",

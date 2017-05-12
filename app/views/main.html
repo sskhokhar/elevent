@@ -54,8 +54,8 @@
     margin-top: 15%;">{{noEvent}}</div>
 <div class="row row-horizon" ng-controller="MainCtrl">
 
-    <div class="col-lg-3 col-md-5 col-sm-7 col-xs-7 event-cards" ng-repeat="x in myData">
-        <div id="{{x.id}}">
+    <div id="event_card_{{x.id}}" class="col-lg-3 col-md-5 col-sm-7 col-xs-7 event-cards" ng-repeat="x in myData">
+        <div>
             <div id="event-img-{{x.id}}" ng-mouseover="show(x.id)" ng-mouseleave="hide(x.id)" style="background: url({{x.image}});
                 height: 250px;
                 background-size: contain;
@@ -63,7 +63,7 @@
                 background-position: center center;
                 background-repeat: no-repeat;
                 border-bottom: 1px solid #eaeaea;">
-
+                <span class="collab" ng-show="isCollab">C</span>
                 <div style="position: absolute;  width: 100%; height: 100%; background:rgba(21, 20, 20, 0.65); " id="btn_{{x.id}}" class="bbtn">
                     <div class="dropdown" style="cursor: pointer;padding: 5px;">
                         <i style="margin-right: 5px; margin-top: 10px;color: white" class="fa fa-ellipsis-v fa-1x pull-right dropdown-toggle" data-toggle="dropdown" type="button"></i>
@@ -87,7 +87,7 @@
                             <p>Are you sure you want to delete this event?</p>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="delCard(x.id)">Yes</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="delCard(x)">Yes</button>
                             <button type="button" class="btn btn-primary" data-dismiss="modal">No</button>
                         </div>
                     </div>
