@@ -3,13 +3,14 @@
 module.exports = function(Eventmanager) {
     //Eventmanager.settings.acls.length = 0;
     var app = require('../../server/server');
-    var Event = app.models.Event;
-    console.log(app.models());
+
+    //console.log(app.models());
     Eventmanager.prototype.getCollaboratings = function(callback) {
         var events = [];
         var count = 0;
         var cIds = this.collaboratingIds;
         if (cIds.length > 0) {
+            var Event = Eventmanager.app.models.Event;
             cIds.forEach(function(id) {
                 Event.findById(id, function(err, success) {
                     if (!err) {
