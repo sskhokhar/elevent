@@ -2,7 +2,7 @@
 
 module.exports = function(Eventmanager) {
     //Eventmanager.settings.acls.length = 0;
-    var Event = Eventmanager.app.models.Event;
+    var Event = Eventmanager.app.model.Event;
     Eventmanager.prototype.getCollaboratings = function(callback) {
         var events = [];
         var count = 0;
