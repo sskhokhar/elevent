@@ -1,81 +1,76 @@
 {
-  "name": "Eventmanager",
-  "base": "User",
-  "idInjection": true,
-  "options": {
-    "validateUpsert": true
-  },
-  "properties": {
-    "firstname": {
-      "type": "string"
+    "name": "Eventmanager",
+    "base": "User",
+    "idInjection": true,
+    "options": {
+        "validateUpsert": true
     },
-    "lastname": {
-      "type": "string"
-    },
-    "profilePicture": {
-      "type": "string"
-    },
-    "companyName": {
-      "type": "string"
-    },
-    "collaboratingIds": {
-      "type": [
-        "string"
-      ],
-      "default": []
-    }
-  },
-  "validations": [],
-  "relations": {
-    "events": {
-      "type": "referencesMany",
-      "model": "Event",
-      "foreignKey": "eventIds",
-      "options": {
-        "validate": true,
-        "forceId": false
-      }
-    }
-  },
-  "acls": [
-    {
-      "accessType": "*",
-      "principalType": "ROLE",
-      "principalId": "superUser",
-      "permission": "ALLOW"
-    },
-    {
-      "accessType": "EXECUTE",
-      "principalType": "ROLE",
-      "principalId": "$authenticated",
-      "permission": "ALLOW",
-      "property": "__create__events"
-    },
-    {
-      "accessType": "EXECUTE",
-      "principalType": "ROLE",
-      "principalId": "$owner",
-      "permission": "ALLOW",
-      "property": "prototype.getCollaboratings"
-    }
-  ],
-  "methods": {
-    "prototype.getCollaboratings": {
-      "accepts": [],
-      "returns": [
-        {
-          "arg": "Events",
-          "type": "array",
-          "root": true,
-          "description": "Instances of events"
+    "properties": {
+        "firstname": {
+            "type": "string"
+        },
+        "lastname": {
+            "type": "string"
+        },
+        "profilePicture": {
+            "type": "string"
+        },
+        "companyName": {
+            "type": "string"
+        },
+        "collaboratingIds": {
+            "type": [
+                "string"
+            ],
+            "default": []
         }
-      ],
-      "description": "Get collaborating instances.",
-      "http": [
-        {
-          "verb": "get"
+    },
+    "validations": [],
+    "relations": {
+        "events": {
+            "type": "referencesMany",
+            "model": "Event",
+            "foreignKey": "eventIds",
+            "options": {
+                "validate": true,
+                "forceId": false
+            }
         }
-      ]
+    },
+    "acls": [{
+            "accessType": "*",
+            "principalType": "ROLE",
+            "principalId": "superUser",
+            "permission": "ALLOW"
+        },
+        {
+            "accessType": "EXECUTE",
+            "principalType": "ROLE",
+            "principalId": "$authenticated",
+            "permission": "ALLOW",
+            "property": "__create__events"
+        },
+        {
+            "accessType": "EXECUTE",
+            "principalType": "ROLE",
+            "principalId": "$owner",
+            "permission": "ALLOW",
+            "property": "getCollaboratings"
+        }
+    ],
+    "methods": {
+        "prototype.getCollaboratings": {
+            "accepts": [],
+            "returns": [{
+                "arg": "Events",
+                "type": "array",
+                "root": true,
+                "description": "Instances of events"
+            }],
+            "description": "Get collaborating instances.",
+            "http": [{
+                "verb": "get"
+            }]
+        }
     }
-  }
 }
