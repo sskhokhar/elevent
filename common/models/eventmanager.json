@@ -52,5 +52,24 @@
       "property": "__create__events"
     }
   ],
-  "methods": {}
+  "methods": {
+    "prototype.getCollaboratings": {
+      "accepts": [],
+      "returns": [
+        {
+          "arg": "Events",
+          "type": "array",
+          "root": true,
+          "description": "Instances of events"
+        }
+      ],
+      "description": "Get collaborating instances.",
+      "http": [
+        {
+          "path": "getCollaborating",
+          "verb": "get"
+        }
+      ]
+    }
+  }
 }
